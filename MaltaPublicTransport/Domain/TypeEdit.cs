@@ -7,22 +7,22 @@ using System.Text.RegularExpressions;
 
 namespace Domain
 {
-    partial class customer 
+    partial class Customer 
     {
-        public customer(int customerNumber) 
+        public Customer(int customerNumber) 
         {
             this.customer_id = Guid.NewGuid();
             this.customer_number = customerNumber;
         }
     }
 
-    partial class customers_balance 
+    partial class CustomersBalance 
     {
-        public customers_balance() 
+        public CustomersBalance() 
         {
         }
 
-        public customers_balance(decimal balance) 
+        public CustomersBalance(decimal balance) 
         {
             this.balance = balance;
             this.date = DateTime.Now;

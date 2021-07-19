@@ -9,19 +9,19 @@ namespace Data
 {
     public class DL
     {
-        static tallinjaEntities mptDB = new tallinjaEntities();
+        static TallinjaEntities mptDB = new TallinjaEntities();
 
-        public List<customer> VerifyCustomerNumber(int customerNumber) 
+        public List<Customer> VerifyCustomerNumber(int customerNumber) 
         {
-            List<customer> customerNumbers = new List<customer>(from customer in mptDB.customers
+            List<Customer> customerNumbers = new List<Customer>(from customer in mptDB.Customers
                                                                 where customer.customer_number == customerNumber
                                                                 select customer);
             return customerNumbers;
         }
 
-        public void AddCustomerNumber(customer customer) 
+        public void AddCustomerNumber(Customer customer) 
         {
-            mptDB.customers.Add(customer);
+            mptDB.Customers.Add(customer);
             mptDB.SaveChanges();
         }
     }
