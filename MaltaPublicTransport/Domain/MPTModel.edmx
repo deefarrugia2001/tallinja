@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="tallinjaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="customers">
+          <Key>
+            <PropertyRef Name="customer_id" />
+          </Key>
+          <Property Name="customer_id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="customer_number" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="customers_balance">
+          <Key>
+            <PropertyRef Name="customer_id" />
+          </Key>
+          <Property Name="customer_id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="balance" Type="decimal" Precision="6" Scale="2" Nullable="false" />
+          <Property Name="date" Type="date" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__customers__custo__3C69FB99">
+          <End Role="customers" Type="Self.customers" Multiplicity="1" />
+          <End Role="customers_balance" Type="Self.customers_balance" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="customers">
+              <PropertyRef Name="customer_id" />
+            </Principal>
+            <Dependent Role="customers_balance">
+              <PropertyRef Name="customer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="tallinjaModelStoreContainer">
+          <EntitySet Name="customers" EntityType="Self.customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="customers_balance" EntityType="Self.customers_balance" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__customers__custo__3C69FB99" Association="Self.FK__customers__custo__3C69FB99">
+            <End Role="customers" EntitySet="customers" />
+            <End Role="customers_balance" EntitySet="customers_balance" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="tallinjaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="customer">
+          <Key>
+            <PropertyRef Name="customer_id" />
+          </Key>
+          <Property Name="customer_id" Type="Guid" Nullable="false" />
+          <Property Name="customer_number" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="customers_balance" Relationship="Self.FK__customers__custo__3B75D760" FromRole="customers" ToRole="customers_balance" />
+        </EntityType>
+        <EntityType Name="customers_balance">
+          <Key>
+            <PropertyRef Name="balance" />
+            <PropertyRef Name="date" />
+          </Key>
+          <Property Name="customer_id" Type="Guid" Nullable="false" />
+          <Property Name="balance" Type="Decimal" Precision="6" Scale="2" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="customer" Relationship="Self.FK__customers__custo__3B75D760" FromRole="customers_balance" ToRole="customers" />
+        </EntityType>
+        <Association Name="FK__customers__custo__3B75D760">
+          <End Role="customers" Type="Self.customer" Multiplicity="0..1" />
+          <End Role="customers_balance" Type="Self.customers_balance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customers">
+              <PropertyRef Name="customer_id" />
+            </Principal>
+            <Dependent Role="customers_balance">
+              <PropertyRef Name="customer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="tallinjaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="customers" EntityType="Self.customer" />
+          <EntitySet Name="customers_balance" EntityType="Self.customers_balance" />
+          <AssociationSet Name="FK__customers__custo__3B75D760" Association="Self.FK__customers__custo__3B75D760">
+            <End Role="customers" EntitySet="customers" />
+            <End Role="customers_balance" EntitySet="customers_balance" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="tallinjaModelStoreContainer" CdmEntityContainer="tallinjaEntities">
+          <EntitySetMapping Name="customers">
+            <EntityTypeMapping TypeName="tallinjaModel.customer">
+              <MappingFragment StoreEntitySet="customers">
+                <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+                <ScalarProperty Name="customer_number" ColumnName="customer_number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="customers_balance">
+            <EntityTypeMapping TypeName="tallinjaModel.customers_balance">
+              <MappingFragment StoreEntitySet="customers_balance">
+                <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+                <ScalarProperty Name="balance" ColumnName="balance" />
+                <ScalarProperty Name="date" ColumnName="date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
