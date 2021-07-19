@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data
+namespace Business
 {
-    public class DL
+    public class BL
     {
     }
 }
