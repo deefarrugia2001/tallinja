@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WebScraping
 {
-    public class Chrome
+    class WS
     {
     }
 }
