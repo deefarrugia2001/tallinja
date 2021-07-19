@@ -15,6 +15,8 @@ namespace Presentation
         {
             //businessLayer.AddCustomerNumber(14161828);
             Guid customerId = businessLayer.FetchCustomerID(14161828);
+            Console.WriteLine(customerId);
+            Console.ReadLine();
         }
     }
 }
