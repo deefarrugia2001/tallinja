@@ -16,6 +16,10 @@ namespace Domain
 
     partial class customers_balance 
     {
+        public customers_balance() 
+        {
+        }
+
         public customers_balance(decimal balance) 
         {
             this.balance = balance;

@@ -50,15 +50,55 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="customer.cs">
+      <DependentUpon>MPTDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="customers_balance.cs">
+      <DependentUpon>MPTDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MPTDatabase.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MPTDatabase.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MPTDatabase.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MPTDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MPTDatabase.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MPTDatabase.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TypeEdit.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
+    <EntityDeploy Include="MPTDatabase.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MPTDatabase.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="MPTDatabase.edmx.diagram">
+      <DependentUpon>MPTDatabase.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MPTDatabase.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MPTDatabase.edmx</DependentUpon>
+      <LastGenOutput>MPTDatabase.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="MPTDatabase.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MPTDatabase.edmx</DependentUpon>
+      <LastGenOutput>MPTDatabase.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
