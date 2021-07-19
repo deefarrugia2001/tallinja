@@ -13,7 +13,7 @@ namespace Business
 {
     public class BL
     {
-        //static Chrome chrome = new Chrome();
+        static Chrome chrome = new Chrome();
         static DL dataLayer = new DL();
 
         public void AddCustomerNumber(int customerNumber) 

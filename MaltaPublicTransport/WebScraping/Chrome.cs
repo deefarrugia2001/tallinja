@@ -9,7 +9,7 @@ namespace WebScraping
 {
     public class Chrome : WS
     {
-        ChromeDriver chromeDriver = new ChromeDriver();
+        ChromeDriver chromeDriver;
 
         public Chrome() : base()
         {
