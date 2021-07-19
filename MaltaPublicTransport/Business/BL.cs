@@ -21,5 +21,10 @@ namespace Business
             customer customer = new customer(customerNumber);
             dataLayer.AddCustomerNumber(customer);
         }
+
+        public bool VerifyCustomerNumber(int customerNumber) 
+        {
+            return dataLayer.VerifyCustomerNumber(customerNumber).Count > 0;
+        }
     }
 }

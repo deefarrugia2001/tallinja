@@ -11,6 +11,14 @@ namespace Data
     {
         static tallinjaEntities mptDB = new tallinjaEntities();
 
+        public List<customer> VerifyCustomerNumber(int customerNumber) 
+        {
+            List<customer> customerNumbers = new List<customer>(from customer in mptDB.customers
+                                                                where customer.customer_number == customerNumber
+                                                                select customer);
+            return customerNumbers;
+        }
+
         public void AddCustomerNumber(customer customer) 
         {
             mptDB.customers.Add(customer);
