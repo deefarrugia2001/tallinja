@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OpenQA.Selenium.Firefox;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,13 @@ using System.Threading.Tasks;
 
 namespace WebScraping
 {
-    class Firefox
+    public class Firefox : WS
     {
+        FirefoxDriver firefoxDriver;
+
+        public Firefox() : base() 
+        {
+            firefoxDriver = (FirefoxDriver)driver;
+        }
     }
 }

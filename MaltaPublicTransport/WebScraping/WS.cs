@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Firefox;
 
 namespace WebScraping
 {
@@ -39,6 +40,8 @@ namespace WebScraping
         {
             if (this is Chrome)
                 driver = new ChromeDriver();
+            if (this is Firefox)
+                driver = new FirefoxDriver();
 
             return driver;
         }
