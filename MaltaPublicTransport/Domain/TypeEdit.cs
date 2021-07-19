@@ -9,6 +9,10 @@ namespace Domain
 {
     partial class Customer 
     {
+        public Customer() 
+        {
+        }
+
         public Customer(int customerNumber) 
         {
             this.customer_id = Guid.NewGuid();
