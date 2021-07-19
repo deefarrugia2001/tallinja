@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace Domain
 {
@@ -10,6 +11,7 @@ namespace Domain
     {
         public customer(int customerNumber) 
         {
+            this.customer_id = Guid.NewGuid();
             this.customer_number = customerNumber;
         }
     }

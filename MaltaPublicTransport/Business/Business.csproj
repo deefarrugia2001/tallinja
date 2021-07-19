@@ -53,6 +53,10 @@
       <Project>{399bde60-db01-43a7-abdd-ff749046f92e}</Project>
       <Name>Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{e58b4667-c580-49b3-bba4-5349b6630b33}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WebScraping\WebScraping.csproj">
       <Project>{76842e7d-0dd4-432a-a0a2-5573833cfadd}</Project>
       <Name>WebScraping</Name>
