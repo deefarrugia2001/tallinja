@@ -22,9 +22,14 @@ namespace Business
             dataLayer.AddCustomerNumber(customer);
         }
 
-        public bool VerifyCustomerNumber(int customerNumber) 
+        public bool VerifyCNUniqueness(int customerNumber) 
         {
             return dataLayer.VerifyCustomerNumber(customerNumber).Count > 0;
+        }
+
+        public bool ValidateCustomerNumber(int customerNumber) 
+        {
+            return dataLayer.VerifyCustomerNumber(customerNumber).Count != 0;
         }
     }
 }
