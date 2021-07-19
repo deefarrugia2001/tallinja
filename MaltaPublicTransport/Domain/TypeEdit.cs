@@ -13,4 +13,13 @@ namespace Domain
             this.customer_number = customerNumber;
         }
     }
+
+    partial class customers_balance 
+    {
+        public customers_balance(decimal balance) 
+        {
+            this.balance = balance;
+            this.date = DateTime.Now;
+        }
+    }
 }
