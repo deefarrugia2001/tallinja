@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Domain
 {
-    partial class Customer 
+    partial class customer 
     {
+        public customer(int customerNumber) 
+        {
+            this.customer_number = customerNumber;
+        }
     }
 }
