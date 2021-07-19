@@ -13,7 +13,7 @@ namespace Presentation
 
         static void Main(string[] args)
         {
-            //businessLayer.AddCustomerNumber(14161828);
+            businessLayer.AddCustomerNumber(14161828);
         }
     }
 }

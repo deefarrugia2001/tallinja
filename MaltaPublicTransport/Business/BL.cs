@@ -18,7 +18,7 @@ namespace Business
 
         public void AddCustomerNumber(int customerNumber) 
         {
-            customer customer = new customer(customerNumber);
+            Customer customer = new Customer(customerNumber);
             dataLayer.AddCustomerNumber(customer);
         }
 
