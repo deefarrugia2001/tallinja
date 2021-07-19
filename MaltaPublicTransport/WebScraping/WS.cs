@@ -14,7 +14,7 @@ namespace WebScraping
 
         public WS()
         {
-            FetchDriverByBrowser();
+            this.driver = FetchDriverByBrowser();
         }
 
         public void Navigate(string url)
@@ -35,10 +35,12 @@ namespace WebScraping
             }
         }
 
-        void FetchDriverByBrowser()
+        IWebDriver FetchDriverByBrowser()
         {
             if (this is Chrome)
                 driver = new ChromeDriver();
+
+            return driver;
         }
     }
 }

@@ -9,8 +9,6 @@ namespace Data
 {
     public class DL
     {
-        tallinjaEntities mptDB = new tallinjaEntities();
-
-
+        static tallinjaEntities mptDB = new tallinjaEntities();
     }
 }
