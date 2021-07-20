@@ -11,6 +11,14 @@ namespace Data
     {
         static TallinjaEntities mptDB = new TallinjaEntities();
         
+        public List<Customer> GetAdmissionsOnDate(DateTime admissionDate) 
+        {
+            List<Customer> customersOnDate = new List<Customer>(from customer in mptDB.Customers
+                                                                where customer.date >= admissionDate
+                                                                select customer);
+            return customersOnDate;
+        }
+
         public Customer FetchCustomerByCN(int customerNumber)
         {
             Customer customerToFetch = (from customer in mptDB.Customers
@@ -33,10 +41,18 @@ namespace Data
             return customerNumbers;
         }
 
-        public void AddCustomerNumber(Customer customer) 
+        public bool AddCustomerNumber(Customer customer) 
         {
-            mptDB.Customers.Add(customer);
-            mptDB.SaveChanges();
+            try 
+            {
+                mptDB.Customers.Add(customer);
+                mptDB.SaveChanges();
+                return true;
+            }
+            catch(System.Data.Entity.Infrastructure.DbUpdateException)
+            {
+                return false;
+            }
         }
     }
 }

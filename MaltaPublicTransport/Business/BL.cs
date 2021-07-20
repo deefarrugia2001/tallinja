@@ -16,11 +16,20 @@ namespace Business
         static Chrome chrome = new Chrome();
         static DL dataLayer = new DL();
 
-        public Customer FetchCustomerStatement(int customerNumber) 
+        public int GetAdmissionsOnDate(int day, int month, int year)
         {
+            DateTime admissionDate = new DateTime(year, month, day);
+            List<Customer> customerAdmissions = dataLayer.GetAdmissionsOnDate(admissionDate);
+            int count = customerAdmissions.Count;
+            return count;
+        }
+
+        public string FetchCustomerStatement(int customerNumber) 
+        {
+            string statement = string.Empty;
             Customer customer = dataLayer.FetchCustomerByCN(customerNumber);
-            Guid customerID = dataLayer.FetchCustomerID(customerNumber);
-            return dataLayer.FetchCustomerByCN(customerNumber);
+            statement = $"Customer ID: {customer.customer_id}\nCustomer number: {customer.customer_number}\nDate created: {customer.date}";
+            return statement;
         }
 
         public Guid FetchCustomerID(int customerNumber) 
