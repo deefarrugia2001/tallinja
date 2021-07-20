@@ -17,6 +17,7 @@ namespace Domain
         {
             this.customer_id = Guid.NewGuid();
             this.customer_number = customerNumber;
+            this.date = DateTime.Now;
         }
     }
 
