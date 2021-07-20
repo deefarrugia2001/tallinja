@@ -27,7 +27,7 @@ namespace Data
 
         public Guid FetchCustomerID(int customerNumber) 
         {
-            Customer customerToFetch = mptDB.Customers.SingleOrDefault(customer => customer.customer_number == customerNumber);
+            Customer customerToFetch = VerifyCustomerNumber(customerNumber).SingleOrDefault();
             return customerToFetch.customer_id;
         }
 
