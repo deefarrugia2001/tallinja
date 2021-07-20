@@ -16,19 +16,16 @@ namespace Business
         public int GetAdmissionsOnDate(int day, int month, int year)
         {
             DateTime admissionDate = new DateTime(year, month, day);
-            //Set dayPostAdmission to the next day after the day of admission so as to check for admissions on one specific date.
+            //Set dayPostAdmission to the day after the admission date to check for admissions between the provided date and the day after.
             DateTime dayPostAdmission = admissionDate.AddDays(1);
-            List<Customer> customerAdmissions = dataLayer.GetAdmissionsOnDate(admissionDate, dayPostAdmission);
-            int count = customerAdmissions.Count;
-            return count;
+            int admissionsCount = dataLayer.GetAdmissionsOnDate(admissionDate, dayPostAdmission).Count;
+            return admissionsCount;
         }
 
         public string FetchCustomerStatement(int customerNumber) 
         {
-            string statement = string.Empty;
             Customer customer = dataLayer.FetchCustomerByCN(customerNumber);
-            statement = $"Customer ID: {customer.customer_id}\nCustomer number: {customer.customer_number}\nDate created: {customer.date}";
-            return statement;
+            return $"Customer ID: {customer.customer_id}\nCustomer number: {customer.customer_number}\nDate created: {customer.date}";
         }
 
         public Guid FetchCustomerID(int customerNumber) 

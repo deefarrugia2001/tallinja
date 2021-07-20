@@ -36,6 +36,14 @@ namespace WebScraping
             }
         }
 
+        public IWebElement FindElement(By target)
+        {
+            IWebElement element = null;
+            if (CheckElementExistence(target))
+                element = driver.FindElement(target);
+            return element;
+        }
+
         IWebDriver FetchDriverByBrowser()
         {
             if (this is Chrome)
