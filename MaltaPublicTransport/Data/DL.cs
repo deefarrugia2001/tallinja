@@ -19,15 +19,13 @@ namespace Data
 
         public Customer FetchCustomerByCN(int customerNumber)
         {
-            Customer customerToFetch = (from customer in mptDB.Customers
-                                        where customer.customer_number == customerNumber
-                                        select customer).SingleOrDefault();
+            Customer customerToFetch = VerifyCustomerNumber(customerNumber).SingleOrDefault();
             return customerToFetch;
         }
 
         public Guid FetchCustomerID(int customerNumber) 
         {
-            Customer customerToFetch = VerifyCustomerNumber(customerNumber).SingleOrDefault();
+            Customer customerToFetch = FetchCustomerByCN(customerNumber);
             return customerToFetch.customer_id;
         }
 
