@@ -16,6 +16,13 @@ namespace Business
         static Chrome chrome = new Chrome();
         static DL dataLayer = new DL();
 
+        public Customer FetchCustomerStatement(int customerNumber) 
+        {
+            Customer customer = dataLayer.FetchCustomerByCN(customerNumber);
+            Guid customerID = dataLayer.FetchCustomerID(customerNumber);
+            return dataLayer.FetchCustomerByCN(customerNumber);
+        }
+
         public Guid FetchCustomerID(int customerNumber) 
         {
             return dataLayer.FetchCustomerID(customerNumber);
