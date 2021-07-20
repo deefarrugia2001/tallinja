@@ -14,8 +14,8 @@ namespace Data
         public Customer FetchCustomerByCN(int customerNumber)
         {
             Customer customerToFetch = (from customer in mptDB.Customers
-                                       where customer.customer_number == customerNumber
-                                       select customer).SingleOrDefault();
+                                        where customer.customer_number == customerNumber
+                                        select customer).SingleOrDefault();
             return customerToFetch;
         }
 
