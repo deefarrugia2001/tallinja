@@ -33,9 +33,9 @@ namespace Business
             return statement;
         }
 
-        public void RemoveCustomer(int customerNumber)
+        public bool RemoveCustomer(int customerNumber)
         {
-            dataLayer.RemoveCustomer(customerNumber);
+            return dataLayer.RemoveCustomer(customerNumber);
         }
 
         public Guid FetchCustomerID(int customerNumber) 
@@ -43,9 +43,9 @@ namespace Business
             return dataLayer.FetchCustomerID(customerNumber);
         }
 
-        public void AddCustomer(int customerNumber) 
+        public bool AddCustomer(int customerNumber) 
         {
-            dataLayer.AddCustomer(customerNumber);
+            return dataLayer.AddCustomer(customerNumber);
         }
 
         public bool VerifyCNUniqueness(int customerNumber) 

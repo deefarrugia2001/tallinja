@@ -47,7 +47,7 @@ namespace Data
                 mptDB.Customers.Remove(customerToRemove);
                 mptDB.SaveChanges();
             }
-            //ex may amount to ArgumentNullException due to the result returned by FetchCustomerByCN (due to SingleOrDefault()).
+            //ex may be of type ArgumentNullException due to the result returned by FetchCustomerByCN (due to SingleOrDefault()).
             catch (Exception ex) when (ex is ArgumentNullException || ex is System.Data.Entity.Infrastructure.DbUpdateException) 
             {
                 commitSuccessful = false;
