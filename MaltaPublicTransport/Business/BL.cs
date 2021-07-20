@@ -19,7 +19,8 @@ namespace Business
         public int GetAdmissionsOnDate(int day, int month, int year)
         {
             DateTime admissionDate = new DateTime(year, month, day);
-            List<Customer> customerAdmissions = dataLayer.GetAdmissionsOnDate(admissionDate);
+            DateTime dayPostAdmission = admissionDate.AddDays(1);
+            List<Customer> customerAdmissions = dataLayer.GetAdmissionsOnDate(admissionDate, dayPostAdmission);
             int count = customerAdmissions.Count;
             return count;
         }

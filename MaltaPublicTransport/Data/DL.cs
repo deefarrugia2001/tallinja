@@ -9,10 +9,10 @@ namespace Data
     {
         static TallinjaEntities mptDB = new TallinjaEntities();
         
-        public List<Customer> GetAdmissionsOnDate(DateTime admissionDate) 
+        public List<Customer> GetAdmissionsOnDate(DateTime admissionDate, DateTime dayPostSubmission) 
         {
             List<Customer> customersOnDate = new List<Customer>(from customer in mptDB.Customers
-                                                                where customer.date >= admissionDate
+                                                                where customer.date >= admissionDate && customer.date <= dayPostSubmission
                                                                 select customer);
             return customersOnDate;
         }
