@@ -16,6 +16,7 @@ namespace Domain
     {
         public System.Guid customer_id { get; set; }
         public int customer_number { get; set; }
+        public Nullable<System.DateTime> date { get; set; }
     
         public virtual CustomersBalance CustomersBalance { get; set; }
     }
