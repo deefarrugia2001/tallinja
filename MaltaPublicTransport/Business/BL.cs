@@ -33,15 +33,19 @@ namespace Business
             return statement;
         }
 
+        public void RemoveCustomer(int customerNumber)
+        {
+            dataLayer.RemoveCustomer(customerNumber);
+        }
+
         public Guid FetchCustomerID(int customerNumber) 
         {
             return dataLayer.FetchCustomerID(customerNumber);
         }
 
-        public void AddCustomerNumber(int customerNumber) 
+        public void AddCustomer(int customerNumber) 
         {
-            Customer customer = new Customer(customerNumber);
-            dataLayer.AddCustomerNumber(customer);
+            dataLayer.AddCustomer(customerNumber);
         }
 
         public bool VerifyCNUniqueness(int customerNumber) 

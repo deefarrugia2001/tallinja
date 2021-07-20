@@ -37,12 +37,31 @@ namespace Data
             return customerNumbers;
         }
 
-        public bool AddCustomerNumber(Customer customer) 
+        public bool RemoveCustomer(int customerNumber) 
+        {
+            bool commitSuccessful = true;
+
+            try
+            {
+                Customer customerToRemove = FetchCustomerByCN(customerNumber);
+                mptDB.Customers.Remove(customerToRemove);
+                mptDB.SaveChanges();
+            }
+            catch (Exception ex) when (ex is ArgumentNullException || ex is System.Data.Entity.Infrastructure.DbUpdateException) 
+            {
+                commitSuccessful = false;
+            }
+
+            return commitSuccessful;
+        }
+
+        public bool AddCustomer(int customerNumber) 
         {
             bool commitSuccessful = true;
 
             try 
             {
+                Customer customer = new Customer(customerNumber);
                 mptDB.Customers.Add(customer);
                 mptDB.SaveChanges();
             }
