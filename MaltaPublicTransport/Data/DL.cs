@@ -10,6 +10,14 @@ namespace Data
     public class DL
     {
         static TallinjaEntities mptDB = new TallinjaEntities();
+        
+        public Customer FetchCustomerByCN(int customerNumber)
+        {
+            Customer customerToFetch = (from customer in mptDB.Customers
+                                       where customer.customer_number == customerNumber
+                                       select customer).SingleOrDefault();
+            return customerToFetch;
+        }
 
         public Guid FetchCustomerID(int customerNumber) 
         {
