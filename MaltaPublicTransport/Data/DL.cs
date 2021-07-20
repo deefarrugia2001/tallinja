@@ -39,16 +39,19 @@ namespace Data
 
         public bool AddCustomerNumber(Customer customer) 
         {
+            bool commitSuccessful = true;
+
             try 
             {
                 mptDB.Customers.Add(customer);
                 mptDB.SaveChanges();
-                return true;
             }
             catch(System.Data.Entity.Infrastructure.DbUpdateException)
             {
-                return false;
+                commitSuccessful = false;
             }
+
+            return commitSuccessful;
         }
     }
 }
