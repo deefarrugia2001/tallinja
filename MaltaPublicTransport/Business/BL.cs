@@ -3,9 +3,6 @@ using Domain;
 using WebScraping;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
@@ -19,6 +16,7 @@ namespace Business
         public int GetAdmissionsOnDate(int day, int month, int year)
         {
             DateTime admissionDate = new DateTime(year, month, day);
+            //Set dayPostAdmission to the next day after the day of admission so as to check for admissions on one specific date.
             DateTime dayPostAdmission = admissionDate.AddDays(1);
             List<Customer> customerAdmissions = dataLayer.GetAdmissionsOnDate(admissionDate, dayPostAdmission);
             int count = customerAdmissions.Count;
@@ -33,11 +31,6 @@ namespace Business
             return statement;
         }
 
-        public bool RemoveCustomer(int customerNumber)
-        {
-            return dataLayer.RemoveCustomer(customerNumber);
-        }
-
         public Guid FetchCustomerID(int customerNumber) 
         {
             return dataLayer.FetchCustomerID(customerNumber);
@@ -46,6 +39,11 @@ namespace Business
         public bool AddCustomer(int customerNumber) 
         {
             return dataLayer.AddCustomer(customerNumber);
+        }
+
+        public bool RemoveCustomer(int customerNumber)
+        {
+            return dataLayer.RemoveCustomer(customerNumber);
         }
 
         public bool VerifyCNUniqueness(int customerNumber) 
