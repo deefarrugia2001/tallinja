@@ -13,6 +13,11 @@ namespace Business
         static Chrome chrome = new Chrome();
         static DL dataLayer = new DL();
 
+        public void NavigateToCheckBalance() 
+        {
+            chrome.Navigate("https://www.publictransport.com.mt/en/check-card-balance");
+        }
+
         public int GetAdmissionsOnDate(int day, int month, int year)
         {
             DateTime admissionDate = new DateTime(year, month, day);
