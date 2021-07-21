@@ -9,12 +9,14 @@ using OpenQA.Selenium.Firefox;
 
 namespace WebScraping
 {
+    public enum Element
+    {
+        ID, CLASS, XPATH, TAG_NAME
+    }
+
     public abstract class WS
     {
-        public enum Element 
-        {
-            ID, CLASS, XPATH, TAG_NAME
-        }
+        
 
         protected IWebDriver driver;
 

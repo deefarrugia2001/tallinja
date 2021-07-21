@@ -16,6 +16,8 @@ namespace Business
         public void NavigateToCheckBalance() 
         {
             chrome.Navigate("https://www.publictransport.com.mt/en/check-card-balance");
+            IWebElement element = chrome.FindElement(Element.ID, "ctl00_ctl00_ParentPageContent_PageContent_ContentControl_ctl00_txtCustomerId");
+            element.SendKeys("14161828");
         }
 
         public int GetAdmissionsOnDate(int day, int month, int year)
