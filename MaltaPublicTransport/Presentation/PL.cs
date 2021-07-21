@@ -18,6 +18,8 @@ namespace Presentation
             int count = businessLayer.GetAdmissionsOnDate(20, 7, 2021);
             Console.WriteLine($"Number of admissions: {count}");
 
+            businessLayer.NavigateToCheckBalance();
+
             //string statement = businessLayer.FetchCustomerStatement(14161828);
             //Console.WriteLine(statement);
 
