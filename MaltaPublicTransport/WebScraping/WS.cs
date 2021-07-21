@@ -16,8 +16,6 @@ namespace WebScraping
 
     public abstract class WS
     {
-        
-
         protected IWebDriver driver;
 
         public WS()
