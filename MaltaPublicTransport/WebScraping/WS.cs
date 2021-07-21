@@ -11,6 +11,11 @@ namespace WebScraping
 {
     public abstract class WS
     {
+        public enum Element 
+        {
+            ID, CLASS, XPATH, TAG_NAME
+        }
+
         protected IWebDriver driver;
 
         public WS()
@@ -34,6 +39,59 @@ namespace WebScraping
             {
                 return false;
             }
+        }
+
+        public bool CheckElementExistence(Element elementType, string elementName)
+        {
+            try
+            {
+                switch(elementType) 
+                {
+                    case Element.CLASS:
+                        driver.FindElement(By.ClassName(elementName));
+                        break;
+                    case Element.ID:
+                        driver.FindElement(By.Id(elementName));
+                        break;
+                    case Element.XPATH:
+                        driver.FindElement(By.XPath(elementName));
+                        break;
+                    case Element.TAG_NAME:
+                        driver.FindElement(By.TagName(elementName));
+                        break;
+                }
+
+                return true;
+            }
+            catch (NoSuchElementException)
+            {
+                return false;
+            }
+        }
+
+        public IWebElement FindElement(Element elementType, string elementName) 
+        {
+            IWebElement element = null;
+            By elementToFetch = null;
+
+            switch (elementType)
+            {
+                case Element.CLASS:
+                    elementToFetch = By.ClassName(elementName);
+                    break;
+                case Element.ID:
+                    elementToFetch = By.Id(elementName);
+                    break;
+                case Element.XPATH:
+                    elementToFetch = By.XPath(elementName);
+                    break;
+                case Element.TAG_NAME:
+                    elementToFetch = By.TagName(elementName);
+                    break;
+            }
+
+            element = this.FindElement(elementToFetch);
+            return element;
         }
 
         public IWebElement FindElement(By target)
