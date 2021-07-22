@@ -13,7 +13,11 @@ namespace Presentation
         {
             string menu = string.Empty;
             for(int optionIndex = 0; optionIndex < options.Count; optionIndex++)
-                menu += $"{optionIndex + 1}. {options[optionIndex]}\n";
+            {
+                menu += $"{optionIndex + 1}. {options[optionIndex]}";
+                if (optionIndex < options.Count - 1)
+                    menu += "\n";
+            }
             return menu;
         } 
     }

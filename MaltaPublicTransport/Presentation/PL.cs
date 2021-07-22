@@ -17,6 +17,7 @@ namespace Presentation
         static void Main(string[] args)
         {
             Console.WriteLine(login.AddOptionsToMenu());
+            Console.Write("Please enter a choice from the menu: ");
             Console.ReadLine();
         }
     }
