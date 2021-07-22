@@ -12,8 +12,8 @@ namespace Presentation
         public string AddOptionsToMenu(List<string> options) 
         {
             string menu = string.Empty;
-            for(int optionIndex = 1; optionIndex < options.Count; optionIndex++)
-                menu += $"{optionIndex}. {options[optionIndex]}\n";
+            for(int optionIndex = 0; optionIndex < options.Count; optionIndex++)
+                menu += $"{optionIndex + 1}. {options[optionIndex]}\n";
             return menu;
         } 
     }

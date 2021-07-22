@@ -12,10 +12,10 @@ namespace Presentation
         {
         }
 
-        public void AddOptionsToMenu()
+        public string AddOptionsToMenu()
         {
             List<string> options = new List<string>() { "Login", "Exit" };
-            base.AddOptionsToMenu(options);
+            return base.AddOptionsToMenu(options);
         }
     }
 }

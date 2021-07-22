@@ -12,9 +12,11 @@ namespace Presentation
     class PL
     {
         static BL businessLayer = new BL();
+        static Login login = new Login();
 
         static void Main(string[] args)
-        {    
+        {
+            Console.WriteLine(login.AddOptionsToMenu());
             Console.ReadLine();
         }
     }
