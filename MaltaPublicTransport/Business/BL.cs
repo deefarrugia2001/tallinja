@@ -18,6 +18,11 @@ namespace Business
             chrome.Navigate("https://www.publictransport.com.mt/en/check-card-balance");
         }
 
+        public void CommitToCustomers(Command command, int customerNumber)
+        {
+            dataLayer.CommitToCustomer(command, customerNumber);
+        }
+
         public int GetAdmissionsOnDate(int day, int month, int year)
         {
             DateTime admissionDate = new DateTime(year, month, day);

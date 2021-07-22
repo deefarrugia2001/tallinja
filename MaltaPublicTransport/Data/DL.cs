@@ -5,6 +5,11 @@ using System.Linq;
 
 namespace Data
 {
+    public enum Command
+    {
+        ADD, DELETE
+    }
+
     public class DL
     {
         static TallinjaEntities mptDB = new TallinjaEntities();
@@ -15,6 +20,14 @@ namespace Data
                                                                 where customer.date >= admissionDate && customer.date <= dayPostSubmission
                                                                 select customer);
             return customersOnDate;
+        }
+
+        public void CommitToCustomer(Command command, int customerNumber) 
+        {
+            if (command == Command.ADD)
+                this.AddCustomer(customerNumber);
+            else if (command == Command.DELETE)
+                this.RemoveCustomer(customerNumber);
         }
 
         public Customer FetchCustomerByCN(int customerNumber)
