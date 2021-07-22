@@ -11,5 +11,11 @@ namespace Presentation
         public Login() 
         {
         }
+
+        public void AddOptionsToMenu()
+        {
+            List<string> options = new List<string>() { "Login", "Exit" };
+            base.AddOptionsToMenu(options);
+        }
     }
 }
