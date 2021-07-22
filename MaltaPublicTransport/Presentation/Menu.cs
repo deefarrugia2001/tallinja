@@ -8,5 +8,8 @@ namespace Presentation
 {
     class Menu
     {
+        public Menu() 
+        {
+        }
     }
 }
