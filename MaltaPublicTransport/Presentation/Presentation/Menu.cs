@@ -8,9 +8,13 @@ namespace Presentation
         {
         }
 
-        public string AddOptionsToMenu(List<string> options) 
+        public string AddOptionsToMenu(string menuTitle, List<string> options) 
         {
-            string menu = string.Empty;
+            string menu = $"{menuTitle}\n";
+            foreach (char characters in menuTitle)
+                menu += "=";
+            menu += "\n";
+
             for(int optionIndex = 0; optionIndex < options.Count; optionIndex++)
             {
                 menu += $"{optionIndex + 1}. {options[optionIndex]}";
@@ -18,6 +22,7 @@ namespace Presentation
                 if (optionIndex < options.Count - 1)
                     menu += "\n";
             }
+
             return menu;
         } 
     }
