@@ -10,13 +10,13 @@ namespace Business
 {
     public class BL
     {
-        static Chrome chrome = new Chrome();
+        //static Chrome chrome = new Chrome();
         static DL dataLayer = new DL();
 
-        public void NavigateToCheckBalance() 
-        {
-            chrome.Navigate("https://www.publictransport.com.mt/en/check-card-balance");
-        }
+        //public void NavigateToCheckBalance() 
+        //{
+        //    chrome.Navigate("https://www.publictransport.com.mt/en/check-card-balance");
+        //}
 
         public void CommitToCustomers(Command command, int customerNumber)
         {
