@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Presentation
 {
-    class Login
+    class Login : Menu
     {
         public Login() 
         {
