@@ -14,20 +14,6 @@ namespace Presentation
 
         static void Main(string[] args)
         {
-            //businessLayer.RemoveCustomer(41187967);
-            //businessLayer.AddCustomer(41187967);
-            int count = businessLayer.GetAdmissionsOnDate(20, 7, 2021);
-            Console.WriteLine($"Number of admissions: {count}");
-
-            businessLayer.NavigateToCheckBalance();
-            businessLayer.CommitToCustomers(Command.ADD, 41187967);
-
-            //string statement = businessLayer.FetchCustomerStatement(14161828);
-            //Console.WriteLine(statement);
-
-            //Guid customerId = businessLayer.FetchCustomerID(14161828);
-            //Console.WriteLine(customerId);
-
             Console.ReadLine();
         }
     }
