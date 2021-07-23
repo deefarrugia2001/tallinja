@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using System.IO;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 
@@ -97,12 +98,23 @@ namespace WebScraping
             return element;
         }
 
+        public object GetHeadless()
+        {
+            ChromeDriverService service = ChromeDriverService.CreateDefaultService();
+            return service;
+        }
+
         IWebDriver FetchDriverByBrowser()
         {
             if (this is Chrome)
+            {
+                ChromeDriver
                 driver = new ChromeDriver();
+            }
             if (this is Firefox)
+            {
                 driver = new FirefoxDriver();
+            }
 
             return driver;
         }
