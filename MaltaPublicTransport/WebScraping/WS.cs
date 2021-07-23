@@ -98,7 +98,7 @@ namespace WebScraping
             return element;
         }
 
-        public object GetService()
+        private object GetService()
         {
             object service = null;
 
@@ -110,7 +110,7 @@ namespace WebScraping
             return service;
         }
 
-        public object GetOptions() 
+        private object GetOptions() 
         {
             object options = null;
 
