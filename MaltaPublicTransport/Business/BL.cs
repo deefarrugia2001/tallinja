@@ -25,7 +25,7 @@ namespace Business
             }
             else 
             {
-                message = "Sorry, this customer number does not exist in our system!";
+                message = null;
             }
 
             return message;

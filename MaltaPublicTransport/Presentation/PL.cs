@@ -37,13 +37,25 @@ namespace Presentation
             return foregroundColour;
         }
 
+        static void Print(Type type, string message) 
+        {
+            Console.ForegroundColor = ChangeForegound(type);
+            Console.WriteLine(message);
+            Thread.Sleep(2000);
+            Console.ResetColor();
+        }
+
         static void Main(string[] args)
         {
             //Console.WriteLine(login.AddOptionsToMenu());
             //Console.Write("Please enter a choice from the menu: ");
 
-            string message = businessLayer.FetchBalance(26636573);
-            Console.WriteLine(message);
+            string message = businessLayer.FetchBalance(26636573); //businessLayer.FetchBalance(14161828);
+            if (message == null)
+                Print(Type.ERROR, "Sorry, the customer number entered does not exist in our system!");
+            else
+                Print(Type.SUCCESS, message);
+
             Console.ReadLine();
         }
     }
