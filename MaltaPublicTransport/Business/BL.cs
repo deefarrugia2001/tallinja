@@ -17,23 +17,20 @@ namespace Business
         {
             decimal balance = 0.0m;
 
-            if(this.ValidateCustomerNumber(customerNumber)) 
-            {
-                chrome = new Chrome();
-                chrome.Navigate("https://www.publictransport.com.mt/en/check-card-balance");
+            chrome = new Chrome();
+            chrome.Navigate("https://www.publictransport.com.mt/en/check-card-balance");
 
-                IWebElement customerNumberField = chrome.FindElement(Element.ID, "ctl00_ctl00_ParentPageContent_PageContent_ContentControl_ctl00_txtCustomerId");
-                customerNumberField.SendKeys(customerNumber.ToString());
+            IWebElement customerNumberField = chrome.FindElement(Element.ID, "ctl00_ctl00_ParentPageContent_PageContent_ContentControl_ctl00_txtCustomerId");
+            customerNumberField.SendKeys(customerNumber.ToString());
 
-                IWebElement checkBtn = chrome.FindElement(Element.ID, "ctl00_ctl00_ParentPageContent_PageContent_ContentControl_ctl00_btnCheckBalance");
-                checkBtn.Submit();
+            IWebElement checkBtn = chrome.FindElement(Element.ID, "ctl00_ctl00_ParentPageContent_PageContent_ContentControl_ctl00_btnCheckBalance");
+            checkBtn.Submit();
 
-                string balanceEuros = chrome.FindElement(Element.ID, "ctl00_ctl00_ParentPageContent_PageContent_ContentControl_ctl00_lblCardBalance2").Text;
-                Console.WriteLine(balanceEuros);
-                string balanceCents = chrome.FindElement(Element.ID, "ctl00_ctl00_ParentPageContent_PageContent_ContentControl_ctl00_lblBalanceCents").Text;
+            string balanceEuros = chrome.FindElement(Element.ID, "ctl00_ctl00_ParentPageContent_PageContent_ContentControl_ctl00_lblCardBalance2").Text;
+            Console.WriteLine(balanceEuros);
+            string balanceCents = chrome.FindElement(Element.ID, "ctl00_ctl00_ParentPageContent_PageContent_ContentControl_ctl00_lblBalanceCents").Text;
 
-                balance = Convert.ToDecimal($"{balanceEuros}{balanceCents}");
-            }
+            balance = Convert.ToDecimal($"{balanceEuros}{balanceCents}");
 
             return balance;
         }

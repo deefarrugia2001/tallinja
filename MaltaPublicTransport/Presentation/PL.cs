@@ -45,16 +45,25 @@ namespace Presentation
             Console.ResetColor();
         }
 
+        static void Print(string message)
+        {
+            Console.WriteLine(message);
+        }
+
         static void Main(string[] args)
         {
             //Console.WriteLine(login.AddOptionsToMenu());
             //Console.Write("Please enter a choice from the menu: ");
 
-            string message = businessLayer.FetchBalance(26636573); //businessLayer.FetchBalance(14161828);
-            if (message == null)
-                Print(Type.ERROR, "Sorry, the customer number entered does not exist in our system!");
-            else
-                Print(Type.SUCCESS, message);
+            if(businessLayer.ValidateCustomerNumber(26636573))
+            {
+                decimal balance = businessLayer.FetchBalance(26636573); //businessLayer.FetchBalance(14161828);
+                Print(Type.SUCCESS, $"You have {balance} left.");
+            }
+            else 
+            {
+                Print(Type.ERROR, "Customer number does not exist in our system!");
+            }
 
             Console.ReadLine();
         }
