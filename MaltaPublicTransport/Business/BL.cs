@@ -13,18 +13,22 @@ namespace Business
         static Chrome chrome = null;
         static DL dataLayer = new DL();
 
-        public bool FetchBalance(int customerNumber)
+        public string FetchBalance(int customerNumber)
         {
-            bool doesCustomerNumberExist = false;
+            string message = string.Empty;
 
             if(this.ValidateCustomerNumber(customerNumber)) 
             {
                 chrome = new Chrome();
                 chrome.Navigate("https://www.publictransport.com.mt/en/check-card-balance");
-                doesCustomerNumberExist = true;
+                message = "Customer ID exists!";
+            }
+            else 
+            {
+                message = "Sorry, this customer number does not exist in our system!";
             }
 
-            return doesCustomerNumberExist;
+            return message;
         }
 
         public void CommitToCustomers(Command command, int customerNumber)
