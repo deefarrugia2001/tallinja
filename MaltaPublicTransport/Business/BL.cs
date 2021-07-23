@@ -14,12 +14,20 @@ namespace Business
         static DL dataLayer = new DL();
 
         public string FetchBalance(int customerNumber)
-        {   
+        {
+            string message = string.Empty;
+
             if(this.ValidateCustomerNumber(customerNumber)) 
             {
                 chrome = new Chrome();
                 chrome.Navigate("https://www.publictransport.com.mt/en/check-card-balance");
             }
+            else
+            {
+                message = "Sorry, this customer number does not exist in our system!";
+            }
+
+            return message;
         }
 
         public void CommitToCustomers(Command command, int customerNumber)
