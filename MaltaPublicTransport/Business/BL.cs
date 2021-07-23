@@ -10,7 +10,7 @@ namespace Business
 {
     public class BL
     {
-        //static Chrome chrome = new Chrome();
+        static Chrome chrome = null;
         static DL dataLayer = new DL();
 
         //public void NavigateToCheckBalance() 
