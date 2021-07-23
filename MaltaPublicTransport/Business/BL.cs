@@ -13,22 +13,25 @@ namespace Business
         static Chrome chrome = null;
         static DL dataLayer = new DL();
 
-        public string FetchBalance(int customerNumber)
+        public decimal FetchBalance(int customerNumber)
         {
-            string message = string.Empty;
+            decimal balance = 0.0m;
 
             if(this.ValidateCustomerNumber(customerNumber)) 
             {
                 chrome = new Chrome();
                 chrome.Navigate("https://www.publictransport.com.mt/en/check-card-balance");
-                message = "Customer ID exists!";
-            }
-            else 
-            {
-                message = null;
+
+                checkBtn.Submit();
+
+                string balanceEuros = chrome.FindElement(Element.ID, "ctl00_ctl00_ParentPageContent_PageContent_ContentControl_ctl00_lblCardBalance2").Text;
+                Console.WriteLine(balanceEuros);
+                string balanceCents = chrome.FindElement(Element.ID, "ctl00_ctl00_ParentPageContent_PageContent_ContentControl_ctl00_lblBalanceCents").Text;
+
+                balance = Convert.ToDecimal($"{balanceEuros}{balanceCents}");
             }
 
-            return message;
+            return balance;
         }
 
         public void CommitToCustomers(Command command, int customerNumber)
