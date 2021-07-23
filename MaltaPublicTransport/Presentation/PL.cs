@@ -13,15 +13,28 @@ namespace Presentation
     {
         enum Type 
         {
-            ERROR, SUCCESS, NORMAL
+            ERROR, SUCCESS
         }
 
         static BL businessLayer = new BL();
         static Login login = new Login();
 
-        static void Print(Type type) 
+        static ConsoleColor ChangeForegound(Type type) 
         {
+            //Set the initial value to the current foreground colour.
+            ConsoleColor foregroundColour = Console.ForegroundColor;
 
+            switch(type) 
+            {
+                case Type.ERROR:
+                    foregroundColour = ConsoleColor.Red;
+                    break;
+                case Type.SUCCESS:
+                    foregroundColour = ConsoleColor.Green;
+                    break;
+            }
+
+            return foregroundColour;
         }
 
         static void Main(string[] args)
