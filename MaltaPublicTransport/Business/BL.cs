@@ -23,7 +23,7 @@ namespace Business
                 chrome.Navigate("https://www.publictransport.com.mt/en/check-card-balance");
 
                 IWebElement customerNumberField = chrome.FindElement(Element.ID, "ctl00_ctl00_ParentPageContent_PageContent_ContentControl_ctl00_txtCustomerId");
-                customerNumberField.SendKeys("14161828");
+                customerNumberField.SendKeys(customerNumber.ToString());
 
                 IWebElement checkBtn = chrome.FindElement(Element.ID, "ctl00_ctl00_ParentPageContent_PageContent_ContentControl_ctl00_btnCheckBalance");
                 checkBtn.Submit();
