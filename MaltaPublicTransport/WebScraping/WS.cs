@@ -98,22 +98,53 @@ namespace WebScraping
             return element;
         }
 
-        public object GetHeadless()
+        public object GetService()
         {
-            ChromeDriverService service = ChromeDriverService.CreateDefaultService();
+            object service = null;
+
+            if(this is Chrome)
+                service = ChromeDriverService.CreateDefaultService();
+            if (this is Firefox)
+                service = FirefoxDriverService.CreateDefaultService();
+
             return service;
+        }
+
+        public object GetOptions() 
+        {
+            object options = null;
+
+            if (this is Chrome)
+            {
+                options = new ChromeOptions();
+                ChromeOptions chromeOptions = (ChromeOptions)options;
+                chromeOptions.AddArgument("--headless");
+                options = chromeOptions;
+            }
+                
+            if (this is Firefox)
+            {
+                options = new FirefoxOptions();
+                FirefoxOptions firefoxOptions = (FirefoxOptions)options;
+                firefoxOptions.AddArgument("--headless");
+                options = firefoxOptions;
+            }
+
+            return options;
         }
 
         IWebDriver FetchDriverByBrowser()
         {
+            object service = GetService();
+            object options = GetOptions();
+
             if (this is Chrome)
             {
-                ChromeDriver
-                driver = new ChromeDriver();
+                driver = new ChromeDriver((ChromeDriverService)service, (ChromeOptions)options);
             }
             if (this is Firefox)
             {
-                driver = new FirefoxDriver();
+                driver = new FirefoxDriver((FirefoxDriverService)service, (FirefoxOptions)options);
             }
 
             return driver;
