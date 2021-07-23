@@ -103,10 +103,23 @@ namespace WebScraping
             object service = null;
 
             if(this is Chrome)
+            {
                 service = ChromeDriverService.CreateDefaultService();
-            if (this is Firefox)
+                ChromeDriverService chromeDriverService = (ChromeDriverService)service;
+                chromeDriverService.HideCommandPromptWindow = true;
+                chromeDriverService.SuppressInitialDiagnosticInformation = true;
+                service = chromeDriverService;
+            }
+                
+            if (this is Firefox) 
+            {
                 service = FirefoxDriverService.CreateDefaultService();
-
+                FirefoxDriverService firefoxDriverService = (FirefoxDriverService)service;
+                firefoxDriverService.HideCommandPromptWindow = true;
+                firefoxDriverService.SuppressInitialDiagnosticInformation = true;
+                service = firefoxDriverService;
+            }
+                
             return service;
         }
 
