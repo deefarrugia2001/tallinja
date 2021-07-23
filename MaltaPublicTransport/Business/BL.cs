@@ -13,10 +13,14 @@ namespace Business
         static Chrome chrome = null;
         static DL dataLayer = new DL();
 
-        //public void NavigateToCheckBalance() 
-        //{
-        //    chrome.Navigate("https://www.publictransport.com.mt/en/check-card-balance");
-        //}
+        public string FetchBalance(int customerNumber)
+        {   
+            if(this.ValidateCustomerNumber(customerNumber)) 
+            {
+                chrome = new Chrome();
+                chrome.Navigate("https://www.publictransport.com.mt/en/check-card-balance");
+            }
+        }
 
         public void CommitToCustomers(Command command, int customerNumber)
         {
