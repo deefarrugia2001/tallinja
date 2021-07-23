@@ -55,10 +55,10 @@ namespace Presentation
             //Console.WriteLine(login.AddOptionsToMenu());
             //Console.Write("Please enter a choice from the menu: ");
 
-            if(businessLayer.ValidateCustomerNumber(26636573))
+            if(businessLayer.ValidateCustomerNumber(14161828))
             {
-                decimal balance = businessLayer.FetchBalance(26636573); //businessLayer.FetchBalance(14161828);
-                Print(Type.SUCCESS, $"You have {balance} left.");
+                decimal balance = businessLayer.FetchBalance(14161828); //businessLayer.FetchBalance(14161828);
+                Print($"You have {balance} left.");
             }
             else 
             {

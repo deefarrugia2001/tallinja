@@ -27,7 +27,6 @@ namespace Business
             checkBtn.Submit();
 
             string balanceEuros = chrome.FindElement(Element.ID, "ctl00_ctl00_ParentPageContent_PageContent_ContentControl_ctl00_lblCardBalance2").Text;
-            Console.WriteLine(balanceEuros);
             string balanceCents = chrome.FindElement(Element.ID, "ctl00_ctl00_ParentPageContent_PageContent_ContentControl_ctl00_lblBalanceCents").Text;
 
             balance = Convert.ToDecimal($"{balanceEuros}{balanceCents}");
