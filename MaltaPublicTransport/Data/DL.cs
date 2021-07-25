@@ -76,8 +76,9 @@ namespace Data
             return commitSuccessful;
         }
 
-        public void AddBalance() 
+        public void AddBalance(int customerNumber, decimal balance) 
         {
+
         }
 
         public bool AddCustomer(int customerNumber) 
