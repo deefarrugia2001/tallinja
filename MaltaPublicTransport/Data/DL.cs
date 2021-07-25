@@ -37,6 +37,12 @@ namespace Data
             return customerToFetch;
         }
 
+        public int FetchCustomerNumber(int customerNumber) 
+        {
+            Customer customerToFetch = FetchCustomerByCN(customerNumber);
+            return customerToFetch.customer_number;
+        }
+
         public Guid FetchCustomerID(int customerNumber) 
         {
             Customer customerToFetch = FetchCustomerByCN(customerNumber);
@@ -68,6 +74,10 @@ namespace Data
             }
 
             return commitSuccessful;
+        }
+
+        public void AddBalance() 
+        {
         }
 
         public bool AddCustomer(int customerNumber) 
