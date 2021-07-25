@@ -32,6 +32,10 @@ namespace Business
             return balance;
         }
 
+        public void AddBalance(int customerNumber) 
+        {
+        }
+
         public void CommitToCustomers(Command command, int customerNumber)
         {
             dataLayer.CommitToCustomer(command, customerNumber);
