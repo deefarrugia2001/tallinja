@@ -5,7 +5,7 @@ using System.Threading;
 
 namespace Presentation.Presentation.Print
 {
-    class IO
+    static class IO
     {
         public enum Type
         {

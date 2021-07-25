@@ -19,6 +19,8 @@ namespace Presentation
 
             do
             {
+                login.AddOptionsToMenu();
+
                 byte selection;
             }
             while(runProgram);
