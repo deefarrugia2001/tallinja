@@ -79,6 +79,7 @@ namespace Data
                 mptDB.Customers.Add(customer);
                 mptDB.SaveChanges();
             }
+            //The exception is typically of type DbUpdateException in the case of data insertation, mainly due to primary key violations.
             catch(System.Data.Entity.Infrastructure.DbUpdateException)
             {
                 commitSuccessful = false;
