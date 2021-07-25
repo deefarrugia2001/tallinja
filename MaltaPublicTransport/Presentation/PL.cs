@@ -19,6 +19,7 @@ namespace Presentation
 
             do
             {
+                byte selection;
             }
             while(runProgram);
 
