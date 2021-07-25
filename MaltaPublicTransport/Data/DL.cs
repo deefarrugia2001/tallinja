@@ -78,7 +78,10 @@ namespace Data
 
         public void AddBalance(int customerNumber, decimal balance) 
         {
-            CustomersBalance customerBalance = new CustomersBalance();
+            Guid customerID = FetchCustomerID(customerNumber);
+            CustomersBalance customerBalance = new CustomersBalance(customerID, balance);
+            mptDB.CustomersBalances.Add(customerBalance);
+            mptDB.SaveChanges();
         }
 
         public bool AddCustomer(int customerNumber) 
