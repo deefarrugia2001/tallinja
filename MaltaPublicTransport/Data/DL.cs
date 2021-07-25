@@ -78,7 +78,7 @@ namespace Data
 
         public void AddBalance(int customerNumber, decimal balance) 
         {
-
+            CustomersBalance customerBalance = new CustomersBalance();
         }
 
         public bool AddCustomer(int customerNumber) 
