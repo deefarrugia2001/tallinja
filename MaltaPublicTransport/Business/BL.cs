@@ -34,6 +34,8 @@ namespace Business
 
         public void AddBalance(int customerNumber) 
         {
+            decimal balance = FetchBalance(customerNumber);
+            dataLayer.AddBalance(customerNumber, balance);
         }
 
         public void CommitToCustomers(Command command, int customerNumber)
