@@ -1,4 +1,6 @@
-﻿using Data;
+﻿#pragma warning disable
+
+using Data;
 using Domain;
 using WebScraping;
 using System;
