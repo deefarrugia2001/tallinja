@@ -5,7 +5,7 @@ namespace Presentation.Presentation.Print
 {
     class IO
     {
-        enum Type
+        public enum Type
         {
             ERROR, SUCCESS
         }
