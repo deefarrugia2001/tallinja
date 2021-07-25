@@ -13,6 +13,8 @@ namespace Presentation
             ERROR, SUCCESS
         }
 
+        int customerNumber;
+
         static BL businessLayer = new BL();
         static Login login = new Login();
 
