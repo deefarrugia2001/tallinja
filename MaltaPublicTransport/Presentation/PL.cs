@@ -15,6 +15,13 @@ namespace Presentation
 
         static void Main(string[] args)
         {
+            bool runProgram = true;
+
+            do
+            {
+            }
+            while(runProgram);
+
             Console.ReadLine();
         }
     }
