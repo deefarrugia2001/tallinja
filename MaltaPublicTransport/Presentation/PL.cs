@@ -20,7 +20,9 @@ namespace Presentation
 
             do
             {
-                //login.AddOptionsToMenu();
+                IO.Print(login.AddOptionsToMenu());
+                IO.Print("Please select an option from the menu: ", false);
+
                 byte selection;
             }
             while(runProgram);

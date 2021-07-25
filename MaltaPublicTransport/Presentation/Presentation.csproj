@@ -57,9 +57,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Presentation\Login.cs" />
-    <Compile Include="Presentation\Menu.cs" />
+    <Compile Include="Presentation\Menu\Login.cs" />
+    <Compile Include="Presentation\Menu\Menu.cs" />
     <Compile Include="PL.cs" />
+    <Compile Include="Presentation\Print\IO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
