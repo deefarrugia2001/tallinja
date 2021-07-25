@@ -59,19 +59,6 @@ namespace Presentation
 
         static void Main(string[] args)
         {
-            Print(login.AddOptionsToMenu());
-            Print("Please enter a choice from the menu: ", false);
-
-            if(businessLayer.ValidateCustomerNumber(14161828))
-            {
-                decimal balance = businessLayer.FetchBalance(14161828); //businessLayer.FetchBalance(14161828);
-                Print($"You have {balance} left.");
-            }
-            else 
-            {
-                Print(Type.ERROR, "Customer number does not exist in our system!");
-            }
-
             Console.ReadLine();
         }
     }
