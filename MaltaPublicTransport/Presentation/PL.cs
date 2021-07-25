@@ -47,10 +47,18 @@ namespace Presentation
             Console.WriteLine(message);
         }
 
+        static void Print(string message, bool skipLine) 
+        {
+            if (skipLine)
+                Console.Write($"{message}\n");
+            else
+                Console.Write(message);
+        }
+
         static void Main(string[] args)
         {
-            //Console.WriteLine(login.AddOptionsToMenu());
-            //Console.Write("Please enter a choice from the menu: ");
+            Print(login.AddOptionsToMenu());
+            Print("Please enter a choice from the menu: ", false);
 
             if(businessLayer.ValidateCustomerNumber(14161828))
             {
