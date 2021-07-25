@@ -24,6 +24,7 @@ namespace Data
 
         public void CommitToCustomer(Command command, int customerNumber) 
         {
+            //Depending on the enum passed as an argument, either deletion or insertion happens.
             if (command == Command.ADD)
                 this.AddCustomer(customerNumber);
             else if (command == Command.DELETE)
