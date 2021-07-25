@@ -12,7 +12,7 @@ namespace Presentation.Presentation.Print
             ERROR, SUCCESS
         }
 
-        static ConsoleColor ChangeForegound(Type type)
+        public static ConsoleColor ChangeForegound(Type type)
         {
             //Set the initial value to the current foreground colour.
             ConsoleColor foregroundColour = Console.ForegroundColor;
@@ -30,7 +30,7 @@ namespace Presentation.Presentation.Print
             return foregroundColour;
         }
 
-        static void Print(Type type, string message)
+        public static void Print(Type type, string message)
         {
             Console.ForegroundColor = ChangeForegound(type);
             Console.WriteLine(message);
@@ -38,12 +38,12 @@ namespace Presentation.Presentation.Print
             Console.ResetColor();
         }
 
-        static void Print(string message)
+        public static void Print(string message)
         {
             Console.WriteLine(message);
         }
 
-        static void Print(string message, bool skipLine)
+        public static void Print(string message, bool skipLine)
         {
             if (skipLine)
                 Console.Write($"{message}\n");

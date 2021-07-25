@@ -3,6 +3,7 @@
 using Business;
 using System;
 using System.Threading;
+using Presentation.Presentation.Print;
 
 namespace Presentation
 {
@@ -19,8 +20,7 @@ namespace Presentation
 
             do
             {
-                login.AddOptionsToMenu();
-
+                //login.AddOptionsToMenu();
                 byte selection;
             }
             while(runProgram);
