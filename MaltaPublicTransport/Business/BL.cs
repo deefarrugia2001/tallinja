@@ -32,9 +32,8 @@ namespace Business
             return balance;
         }
 
-        public void AddBalance(int customerNumber) 
+        public void AddBalance(int customerNumber, decimal balance) 
         {
-            decimal balance = FetchBalance(customerNumber);
             dataLayer.AddBalance(customerNumber, balance);
         }
 
