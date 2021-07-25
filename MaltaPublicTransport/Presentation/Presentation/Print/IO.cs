@@ -1,4 +1,6 @@
-﻿using System;
+﻿#pragma warning disable
+
+using System;
 using System.Threading;
 
 namespace Presentation.Presentation.Print

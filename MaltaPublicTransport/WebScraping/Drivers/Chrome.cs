@@ -1,4 +1,6 @@
-﻿using OpenQA.Selenium.Chrome;
+﻿#pragma warning disable
+
+using OpenQA.Selenium.Chrome;
 
 namespace WebScraping
 {

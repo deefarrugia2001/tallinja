@@ -1,4 +1,6 @@
-﻿using OpenQA.Selenium.Firefox;
+﻿#pragma warning disable
+
+using OpenQA.Selenium.Firefox;
 
 namespace WebScraping
 {
