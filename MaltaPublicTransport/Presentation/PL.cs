@@ -65,7 +65,7 @@ namespace Presentation
         {
             Console.Clear();
             IO.Print("Exiting from application...");
-            Thread.Sleep(2000);
+            Thread.Sleep(1000);
             isProgramRunning = false;
         }
     }
