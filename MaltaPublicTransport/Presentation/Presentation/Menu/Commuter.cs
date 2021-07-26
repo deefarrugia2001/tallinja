@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Presentation.Presentation.Menu
 {
-    class Commuter
+    public class Commuter : Menu
     {
     }
 }
