@@ -30,6 +30,10 @@ namespace Presentation
                 {
                     switch(selection) 
                     {
+                        case 1:
+                            break;
+                        case 2:
+                            break;
                         default:
                             IO.Print(IO.Type.ERROR, "You have not selected an option within the specified range.");
                             IO.Print("Please press a key to continue...", false);
