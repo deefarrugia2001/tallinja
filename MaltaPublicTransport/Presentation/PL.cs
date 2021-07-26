@@ -9,6 +9,7 @@ namespace Presentation
 {
     class PL
     {
+        static bool isProgramRunning = true;
         int customerNumber;
 
         static BL businessLayer = new BL();
@@ -16,8 +17,6 @@ namespace Presentation
 
         static void Main(string[] args)
         {
-            bool isProgramRunning = true;
-
             do
             {
                 byte selection;
@@ -33,10 +32,7 @@ namespace Presentation
                         case 1:
                             break;
                         case 2:
-                            Console.Clear();
-                            IO.Print("Exiting from application...");
-                            Thread.Sleep(2000);
-                            isProgramRunning = false;
+                            Exit();
                             break;
                         default:
                             IO.Print(IO.Type.ERROR, "You have not selected an option within the specified range.");
@@ -48,6 +44,14 @@ namespace Presentation
                 }
             }
             while(isProgramRunning);
+        }
+
+        static void Exit()
+        {
+            Console.Clear();
+            IO.Print("Exiting from application...");
+            Thread.Sleep(2000);
+            isProgramRunning = false;
         }
     }
 }
