@@ -126,6 +126,14 @@ namespace Presentation
             isProgramRunning = false;
         }
 
+        static void Logout()
+        {
+            Console.Clear();
+            IO.Print("Logging you out...");
+            Thread.Sleep(1000);
+            isCommuterLoggedIn = false;
+        }
+
         static void Warn(string message) 
         {
             IO.Print(IO.Type.ERROR, $"\n{message}");
