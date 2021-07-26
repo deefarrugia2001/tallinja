@@ -16,7 +16,7 @@ namespace Presentation
 
         static void Main(string[] args)
         {
-            bool runProgram = true;
+            bool isProgramRunning = true;
 
             do
             {
@@ -33,6 +33,9 @@ namespace Presentation
                         case 1:
                             break;
                         case 2:
+                            isProgramRunning = false;
+                            IO.Print("Exiting from application...");
+                            Console.Clear();
                             break;
                         default:
                             IO.Print(IO.Type.ERROR, "You have not selected an option within the specified range.");
@@ -43,9 +46,7 @@ namespace Presentation
                     }
                 }
             }
-            while(runProgram);
-
-            Console.ReadLine();
+            while(isProgramRunning);
         }
     }
 }
