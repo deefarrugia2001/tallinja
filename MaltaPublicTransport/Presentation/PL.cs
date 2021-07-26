@@ -35,15 +35,20 @@ namespace Presentation
                             Exit();
                             break;
                         default:
-                            IO.Print(IO.Type.ERROR, "You have not selected an option within the specified range.");
-                            IO.Print("Please press a key to continue...", false);
-                            Console.ReadKey();
-                            Console.Clear();
+                            WarnOutOfRange();
                             break;
                     }
                 }
             }
             while(isProgramRunning);
+        }
+
+        static void WarnOutOfRange() 
+        {
+            IO.Print(IO.Type.ERROR, "You have not selected an option within the specified range.");
+            IO.Print("Please press a key to continue...", false);
+            Console.ReadKey();
+            Console.Clear();
         }
 
         static void Exit()
