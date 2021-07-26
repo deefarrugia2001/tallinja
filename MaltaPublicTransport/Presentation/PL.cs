@@ -10,9 +10,11 @@ namespace Presentation
     class PL
     {
         static bool isProgramRunning = true;
-        static int customerNumber;
+        static bool isCommuterLoggedIn = true;
         static bool isInputFormatCorrect = false;
 
+        static int customerNumber;
+        
         static BL businessLayer = new BL();
         static Login login = new Login();
 
@@ -64,7 +66,10 @@ namespace Presentation
             if(isInputFormatCorrect) 
             {
                 if (businessLayer.ValidateCustomerNumber(customerNumber))
+                {
                     IO.Print(IO.Type.SUCCESS, "The customer number entered matches the records in our database.");
+
+                }
                 else
                     IO.Print(IO.Type.ERROR, "Sorry, the customer number entered does not match the records in our database.");
             }
