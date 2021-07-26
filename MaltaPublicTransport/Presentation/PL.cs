@@ -43,6 +43,21 @@ namespace Presentation
             while(isProgramRunning);
         }
 
+        static void ProceedLoginMenu(byte selection) 
+        {
+            switch(selection) 
+            {
+                case 1:
+                    break;
+                case 2:
+                    break;
+            }
+        }
+
+        static void Login() 
+        {
+        }
+
         static void WarnOutOfRange() 
         {
             IO.Print(IO.Type.ERROR, "You have not selected an option within the specified range.");
