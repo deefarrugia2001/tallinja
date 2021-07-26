@@ -64,7 +64,7 @@ namespace Presentation
             switch (selection)
             {
                 case 1:
-                    CheckBalance();
+                    CheckBalance(customerNumber);
                     break;
                 case 2:
                     ViewChecksOnParticularDay();
@@ -94,6 +94,7 @@ namespace Presentation
         static void CheckBalance(int customerNumber)
         {
             decimal balance = businessLayer.FetchBalance(customerNumber);
+            IO.Print(IO.Type.SUCCESS, $"Dear commuter, you have ${balance} left.");
         }
 
         static void Login() 
