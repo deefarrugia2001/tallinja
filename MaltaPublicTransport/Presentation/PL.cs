@@ -32,7 +32,9 @@ namespace Presentation
                     {
                         default:
                             IO.Print(IO.Type.ERROR, "You have not selected an option within the specified range.");
-                            IO.Print("Please press a key to continue...");
+                            IO.Print("Please press a key to continue...", false);
+                            Console.ReadKey();
+                            Console.Clear();
                             break;
                     }
                 }

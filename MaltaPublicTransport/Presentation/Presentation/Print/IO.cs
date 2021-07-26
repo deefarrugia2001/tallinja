@@ -46,7 +46,7 @@ namespace Presentation.Presentation.Print
         public static void Print(string message, bool skipLine)
         {
             if (skipLine)
-                Console.Write($"{message}\n");
+                Print(message);
             else
                 Console.Write(message);
         }
