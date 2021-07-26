@@ -28,7 +28,8 @@ namespace Presentation
 
                 Console.Clear();
 
-                Console.WriteLine(DisplayMenu(login));
+                IO.Print(DisplayMenu(login));
+                IO.Print("Please select an option from the menu: ", false);
                 isInputFormatCorrect = byte.TryParse(Console.ReadLine(), out selection);
 
                 if (isInputFormatCorrect)
@@ -60,6 +61,39 @@ namespace Presentation
 
         static void ProceedCommuterMenu(byte selection) 
         {
+            switch (selection)
+            {
+                case 1:
+                    CheckBalance();
+                    break;
+                case 2:
+                    ViewChecksOnParticularDay();
+                    break;
+                case 3:
+                    Deactivate();
+                    break;
+                case 4:
+                    Logout();
+                    break;
+                default:
+                    Warn("You have not selected an option within the specified range.");
+                    break;
+            }
+        }
+
+        static void Deactivate()
+        {
+            throw new NotImplementedException();
+        }
+
+        static void ViewChecksOnParticularDay()
+        {
+            throw new NotImplementedException();
+        }
+
+        static void CheckBalance()
+        {
+            throw new NotImplementedException();
         }
 
         static void Login() 
@@ -79,7 +113,8 @@ namespace Presentation
                     {
                         Console.Clear();
 
-                        Console.WriteLine(DisplayMenu(commuter));
+                        IO.Print(DisplayMenu(commuter));
+                        IO.Print("Please select an option from the menu: ", false);
                         isInputFormatCorrect = byte.TryParse(Console.ReadLine(), out selection);
 
                         if(isInputFormatCorrect) 
@@ -152,7 +187,7 @@ namespace Presentation
 
             if (menu is Login)
                 options = new Login().AddOptionsToMenu();
-            
+
             return options;
         }
     }
