@@ -14,13 +14,13 @@ BEGIN
 	USE Tallinja; -- Switch control to tallinja in order to create tables within this
 
 	CREATE TABLE Customers (
-		customer_id UNIQUEIDENTIFIER DEFAULT NEWID() PRIMARY KEY,
+		customer_id INTEGER IDENTITY(1,1) PRIMARY KEY,
 		customer_number INTEGER UNIQUE NOT NULL CHECK (LEN(customer_number) BETWEEN 6 AND 10), -- Check that the customer number is exactly eight characters long.
 		date DATETIME NOT NULL
 	);
 
 	CREATE TABLE CustomersBalance (
-		customer_id UNIQUEIDENTIFIER DEFAULT NEWID() FOREIGN KEY REFERENCES Customers(customer_id) PRIMARY KEY,
+		customer_id INTEGER IDENTITY(1,1) FOREIGN KEY REFERENCES Customers(customer_id) PRIMARY KEY,
 		balance DECIMAL(6,2) NOT NULL CHECK (balance > 0), -- Check that the balance is greater than 0.
 		date DATETIME NOT NULL
 	);
