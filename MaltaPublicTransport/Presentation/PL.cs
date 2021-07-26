@@ -43,6 +43,7 @@ namespace Presentation
                     break;
                 case 2:
                     AddCustomer();
+                    break;
                 case 3:
                     Exit();
                     break;
