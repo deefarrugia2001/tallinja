@@ -20,10 +20,13 @@ namespace Presentation
 
             do
             {
+                byte selection;
+
                 IO.Print(login.AddOptionsToMenu());
                 IO.Print("Please select an option from the menu: ", false);
+                bool isByte = byte.TryParse(Console.ReadLine(), out selection);
 
-                byte selection;
+                
             }
             while(runProgram);
 
