@@ -126,5 +126,9 @@ namespace Presentation
             Console.ReadKey();
             Console.Clear();
         }
+
+        static byte DisplayMenu() 
+        { 
+        }
     }
 }
