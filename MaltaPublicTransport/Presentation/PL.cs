@@ -72,6 +72,19 @@ namespace Presentation
 
         static void AddCustomer() 
         {
+            Console.Clear();
+            IO.Print("Customer Number: ", false);
+            isInputFormatCorrect = int.TryParse(Console.ReadLine(), out customerNumber);
+
+            if (isInputFormatCorrect)
+            {
+                if (businessLayer.VerifyCNUniqueness(customerNumber))
+                    IO.Print(IO.Type.SUCCESS, "Customer number is unique.");
+                else
+                    IO.Print(IO.Type.ERROR, "Customer number is not unique.");
+            }
+            else
+                Warn("Input not in correct format, please try again!");
         }
 
         static void Exit()
