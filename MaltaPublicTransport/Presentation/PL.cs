@@ -10,7 +10,7 @@ namespace Presentation
     class PL
     {
         static bool isProgramRunning = true;
-        int customerNumber;
+        static int customerNumber;
 
         static BL businessLayer = new BL();
         static Login login = new Login();
