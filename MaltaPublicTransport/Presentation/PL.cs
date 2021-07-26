@@ -42,6 +42,8 @@ namespace Presentation
                     Login();
                     break;
                 case 2:
+                    AddCustomer();
+                case 3:
                     Exit();
                     break;
                 default:
