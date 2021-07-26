@@ -79,7 +79,13 @@ namespace Presentation
             if (isInputFormatCorrect)
             {
                 if (businessLayer.VerifyCNUniqueness(customerNumber))
-                    IO.Print(IO.Type.SUCCESS, "Customer number is unique.");
+                {
+                    bool isInsertionSuccessful = businessLayer.AddCustomer(customerNumber);
+                    if (isInsertionSuccessful)
+                        IO.Print(IO.Type.SUCCESS, "Commuter has been added successfully!");
+                    else
+                        IO.Print(IO.Type.ERROR, "Unable to add commuter!");
+                }
                 else
                     IO.Print(IO.Type.ERROR, "Customer number is not unique.");
             }
