@@ -69,12 +69,8 @@ namespace Presentation
                 Warn("Input not in correct format, please try again!");
         }
 
-        static void Warn(string message) 
+        static void AddCustomer() 
         {
-            IO.Print(IO.Type.ERROR, message);
-            IO.Print("Please press a key to continue...", false);
-            Console.ReadKey();
-            Console.Clear();
         }
 
         static void Exit()
@@ -83,6 +79,14 @@ namespace Presentation
             IO.Print("Exiting from application...");
             Thread.Sleep(1000);
             isProgramRunning = false;
+        }
+
+        static void Warn(string message) 
+        {
+            IO.Print(IO.Type.ERROR, message);
+            IO.Print("Please press a key to continue...", false);
+            Console.ReadKey();
+            Console.Clear();
         }
     }
 }
