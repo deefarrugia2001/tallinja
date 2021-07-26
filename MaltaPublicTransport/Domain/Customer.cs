@@ -14,7 +14,7 @@ namespace Domain
     
     public partial class Customer
     {
-        public System.Guid customer_id { get; set; }
+        public int customer_id { get; set; }
         public int customer_number { get; set; }
         public System.DateTime date { get; set; }
     
