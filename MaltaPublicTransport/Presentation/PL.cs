@@ -75,8 +75,7 @@ namespace Presentation
                     {
                         Console.Clear();
 
-                        Console.WriteLine(commuter.AddOptionsToMenu());
-                        IO.Print("Please select an option from the menu: ", false);
+                        Console.WriteLine(DisplayMenu(commuter));
                         isInputFormatCorrect = byte.TryParse(Console.ReadLine(), out selection);
                     }
                     while (isCommuterLoggedIn);
@@ -127,8 +126,17 @@ namespace Presentation
             Console.Clear();
         }
 
-        static byte DisplayMenu(Menu menu) 
-        { 
+        static string DisplayMenu(Menu menu) 
+        {
+            string options = string.Empty;
+
+            if(menu is Commuter)
+                options = new Commuter().AddOptionsToMenu();
+            
+            if(menu is Login)
+                options = new Login().AddOptionsToMenu()
+            
+            return options;
         }
     }
 }
