@@ -28,6 +28,11 @@ namespace Presentation
 
                 if(isByte) 
                 {
+                    switch(selection) 
+                    {
+                        default:
+                            break;
+                    }
                 }
             }
             while(runProgram);
