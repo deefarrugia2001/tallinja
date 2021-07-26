@@ -73,7 +73,9 @@ namespace Presentation
 
                     do
                     {
-                        commuter.AddOptionsToMenu();
+                        Console.Clear();
+
+                        Console.WriteLine(commuter.AddOptionsToMenu());
                         IO.Print("Please select an option from the menu: ", false);
                         isInputFormatCorrect = byte.TryParse(Console.ReadLine(), out selection);
                     }
