@@ -94,8 +94,10 @@ namespace Presentation
         static void CheckBalance(int customerNumber)
         {
             decimal balance = businessLayer.FetchBalance(customerNumber);
-            IO.Print(IO.Type.SUCCESS, $"Dear commuter, you have ${balance} left.");
-            businessLayer.AddBalance(customerNumber, balance);
+            IO.Print(IO.Type.SUCCESS, $"Dear commuter, you have €{balance} left.");
+            int customerID = businessLayer.FetchCustomerID(customerNumber);
+            IO.Print($"Customer number: {customerID}");
+            //businessLayer.AddBalance(customerNumber, balance);
         }
 
         static void Login() 
