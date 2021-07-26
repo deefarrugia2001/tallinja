@@ -13,6 +13,7 @@ namespace Presentation
         static bool isCommuterLoggedIn = true;
         static bool isInputFormatCorrect = false;
 
+        static byte selection;
         static int customerNumber;
         
         static BL businessLayer = new BL();
@@ -22,7 +23,7 @@ namespace Presentation
         {
             do
             {
-                byte selection = 0;
+                selection = 0;
 
                 Console.Clear();
                
@@ -73,6 +74,8 @@ namespace Presentation
                     do
                     {
                         commuter.AddOptionsToMenu();
+                        IO.Print("Please select an option from the menu: ", false);
+                        isInputFormatCorrect = byte.TryParse(Console.ReadLine(), out selection);
                     }
                     while (isCommuterLoggedIn);
                 }
