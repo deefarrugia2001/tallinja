@@ -26,9 +26,8 @@ namespace Presentation
                 selection = 0;
 
                 Console.Clear();
-               
-                IO.Print(login.AddOptionsToMenu());
-                IO.Print("Please select an option from the menu: ", false);
+
+                Console.WriteLine(DisplayMenu(login));
                 isInputFormatCorrect = byte.TryParse(Console.ReadLine(), out selection);
 
                 if (isInputFormatCorrect)
