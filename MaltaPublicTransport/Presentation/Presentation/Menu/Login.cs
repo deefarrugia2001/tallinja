@@ -10,7 +10,7 @@ namespace Presentation
 
         public string AddOptionsToMenu()
         {
-            List<string> options = new List<string>() { "Login", "Exit" };
+            List<string> options = new List<string>() { "Login", "Add commuter", "Exit" };
             return base.AddOptionsToMenu("Login", options);
         }
     }
