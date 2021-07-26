@@ -20,8 +20,10 @@ namespace Presentation
         {
             do
             {
-                byte selection;
+                byte selection = 0;
 
+                Console.Clear();
+               
                 IO.Print(login.AddOptionsToMenu());
                 IO.Print("Please select an option from the menu: ", false);
                 isInputFormatCorrect = byte.TryParse(Console.ReadLine(), out selection);
@@ -103,7 +105,7 @@ namespace Presentation
 
         static void Warn(string message) 
         {
-            IO.Print(IO.Type.ERROR, message);
+            IO.Print(IO.Type.ERROR, $"\n{message}");
             IO.Print("Please press a key to continue...", false);
             Console.ReadKey();
             Console.Clear();
