@@ -69,6 +69,10 @@ namespace Presentation
                 {
                     IO.Print(IO.Type.SUCCESS, "The customer number entered matches the records in our database.");
 
+                    do
+                    {
+                    }
+                    while (isCommuterLoggedIn);
                 }
                 else
                     IO.Print(IO.Type.ERROR, "Sorry, the customer number entered does not match the records in our database.");
