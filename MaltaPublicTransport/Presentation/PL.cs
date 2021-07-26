@@ -91,9 +91,9 @@ namespace Presentation
             throw new NotImplementedException();
         }
 
-        static void CheckBalance()
+        static void CheckBalance(int customerNumber)
         {
-            throw new NotImplementedException();
+            decimal balance = businessLayer.FetchBalance(customerNumber);
         }
 
         static void Login() 
