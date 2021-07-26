@@ -127,7 +127,7 @@ namespace Presentation
             Console.Clear();
         }
 
-        static byte DisplayMenu() 
+        static byte DisplayMenu(Menu menu) 
         { 
         }
     }
