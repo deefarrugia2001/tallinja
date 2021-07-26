@@ -33,9 +33,10 @@ namespace Presentation
                         case 1:
                             break;
                         case 2:
-                            isProgramRunning = false;
-                            IO.Print("Exiting from application...");
                             Console.Clear();
+                            IO.Print("Exiting from application...");
+                            Thread.Sleep(2000);
+                            isProgramRunning = false;
                             break;
                         default:
                             IO.Print(IO.Type.ERROR, "You have not selected an option within the specified range.");
