@@ -76,7 +76,7 @@ namespace Business
 
         public bool VerifyCNUniqueness(int customerNumber) 
         {
-            return dataLayer.VerifyCustomerNumber(customerNumber).Count > 0;
+            return dataLayer.VerifyCustomerNumber(customerNumber).Count == 0;
         }
 
         public bool ValidateCustomerNumber(int customerNumber) 
