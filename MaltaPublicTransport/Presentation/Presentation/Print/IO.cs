@@ -34,7 +34,7 @@ namespace Presentation.Presentation.Print
         {
             Console.ForegroundColor = ChangeForegound(type);
             Console.WriteLine(message);
-            Thread.Sleep(2000);
+            Thread.Sleep(1000);
             Console.ResetColor();
         }
 
