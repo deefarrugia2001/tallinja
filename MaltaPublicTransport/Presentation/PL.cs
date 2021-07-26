@@ -95,6 +95,7 @@ namespace Presentation
         {
             decimal balance = businessLayer.FetchBalance(customerNumber);
             IO.Print(IO.Type.SUCCESS, $"Dear commuter, you have ${balance} left.");
+            businessLayer.AddBalance(customerNumber, balance);
         }
 
         static void Login() 
