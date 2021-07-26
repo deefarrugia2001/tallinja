@@ -17,10 +17,11 @@ namespace Presentation
         static int customerNumber;
         
         static BL businessLayer = new BL();
-        static Login login = new Login();
 
         static void Main(string[] args)
         {
+            Login login = new Login();
+
             do
             {
                 selection = 0;
