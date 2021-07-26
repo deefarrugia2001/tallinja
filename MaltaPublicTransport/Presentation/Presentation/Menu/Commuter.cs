@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Presentation.Presentation.Menu
+namespace Presentation
 {
-    public class Commuter : Menu
+    class Commuter : Menu
     {
     }
 }
