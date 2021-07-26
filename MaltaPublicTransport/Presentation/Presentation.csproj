@@ -57,6 +57,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Presentation\Menu\Commuter.cs" />
     <Compile Include="Presentation\Menu\Login.cs" />
     <Compile Include="Presentation\Menu\Menu.cs" />
     <Compile Include="PL.cs" />

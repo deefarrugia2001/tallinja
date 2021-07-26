@@ -8,8 +8,9 @@ namespace Presentation
         {
         }
 
-        public string AddOptionsToMenu(string menuTitle, List<string> options) 
+        public string AddOptionsToMenu(List<string> options) 
         {
+            string menuTitle = this.GetType().Name;
             string menu = $"{menuTitle}\n";
             foreach (char characters in menuTitle)
                 menu += "=";
