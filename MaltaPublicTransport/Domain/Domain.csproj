@@ -51,37 +51,37 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Customer.cs">
-      <DependentUpon>MaltaPublicTransportModel.tt</DependentUpon>
+      <DependentUpon>MaltaPublicTransport.tt</DependentUpon>
     </Compile>
     <Compile Include="CustomersBalance.cs">
-      <DependentUpon>MaltaPublicTransportModel.tt</DependentUpon>
+      <DependentUpon>MaltaPublicTransport.tt</DependentUpon>
     </Compile>
-    <Compile Include="MaltaPublicTransportModel.Context.cs">
+    <Compile Include="MaltaPublicTransport.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>MaltaPublicTransportModel.Context.tt</DependentUpon>
+      <DependentUpon>MaltaPublicTransport.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="MaltaPublicTransportModel.cs">
+    <Compile Include="MaltaPublicTransport.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>MaltaPublicTransportModel.tt</DependentUpon>
+      <DependentUpon>MaltaPublicTransport.tt</DependentUpon>
     </Compile>
-    <Compile Include="MaltaPublicTransportModel.Designer.cs">
+    <Compile Include="MaltaPublicTransport.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>MaltaPublicTransportModel.edmx</DependentUpon>
+      <DependentUpon>MaltaPublicTransport.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TypeEdit.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <EntityDeploy Include="MaltaPublicTransportModel.edmx">
+    <EntityDeploy Include="MaltaPublicTransport.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>MaltaPublicTransportModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>MaltaPublicTransport.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="MaltaPublicTransportModel.edmx.diagram">
-      <DependentUpon>MaltaPublicTransportModel.edmx</DependentUpon>
+    <None Include="MaltaPublicTransport.edmx.diagram">
+      <DependentUpon>MaltaPublicTransport.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
@@ -89,15 +89,15 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="MaltaPublicTransportModel.Context.tt">
+    <Content Include="MaltaPublicTransport.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MaltaPublicTransportModel.edmx</DependentUpon>
-      <LastGenOutput>MaltaPublicTransportModel.Context.cs</LastGenOutput>
+      <DependentUpon>MaltaPublicTransport.edmx</DependentUpon>
+      <LastGenOutput>MaltaPublicTransport.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="MaltaPublicTransportModel.tt">
+    <Content Include="MaltaPublicTransport.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MaltaPublicTransportModel.edmx</DependentUpon>
-      <LastGenOutput>MaltaPublicTransportModel.cs</LastGenOutput>
+      <DependentUpon>MaltaPublicTransport.edmx</DependentUpon>
+      <LastGenOutput>MaltaPublicTransport.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

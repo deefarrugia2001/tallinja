@@ -59,7 +59,7 @@ namespace Business
             return $"Customer ID: {customer.customer_id}\nCustomer number: {customer.customer_number}\nDate created: {customer.date}";
         }
 
-        public Guid FetchCustomerID(int customerNumber) 
+        public int FetchCustomerID(int customerNumber) 
         {
             return dataLayer.FetchCustomerID(customerNumber);
         }

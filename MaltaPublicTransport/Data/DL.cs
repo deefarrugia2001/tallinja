@@ -45,7 +45,7 @@ namespace Data
             return customerToFetch.customer_number;
         }
 
-        public Guid FetchCustomerID(int customerNumber) 
+        public int FetchCustomerID(int customerNumber) 
         {
             Customer customerToFetch = FetchCustomerByCN(customerNumber);
             return customerToFetch.customer_id;
@@ -80,7 +80,7 @@ namespace Data
 
         public void AddBalance(int customerNumber, decimal balance) 
         {
-            Guid customerID = FetchCustomerID(customerNumber);
+            int customerID = FetchCustomerID(customerNumber);
             CustomersBalance customerBalance = new CustomersBalance(customerID, balance);
             mptDB.CustomersBalances.Add(customerBalance);
             mptDB.SaveChanges();

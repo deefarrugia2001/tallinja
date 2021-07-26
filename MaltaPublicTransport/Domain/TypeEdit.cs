@@ -15,7 +15,6 @@ namespace Domain
 
         public Customer(int customerNumber) 
         {
-            this.customer_id = Guid.NewGuid();
             this.customer_number = customerNumber;
             this.date = DateTime.Now;
         }
@@ -27,9 +26,8 @@ namespace Domain
         {
         }
 
-        public CustomersBalance(Guid customerID, decimal balance) 
+        public CustomersBalance(int customerID, decimal balance) 
         {
-            this.customer_id = customerID;
             this.balance = balance;
             this.date = DateTime.Now;
         }
