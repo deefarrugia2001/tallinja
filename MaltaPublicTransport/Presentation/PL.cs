@@ -26,8 +26,10 @@ namespace Presentation
                 IO.Print("Please select an option from the menu: ", false);
                 isInputFormatCorrect = byte.TryParse(Console.ReadLine(), out selection);
 
-                if(isInputFormatCorrect) 
+                if (isInputFormatCorrect)
                     ProceedLoginMenu(selection);
+                else
+                    Warn("Input not in correct format, please try again!");
             }
             while(isProgramRunning);
         }
@@ -43,7 +45,7 @@ namespace Presentation
                     Exit();
                     break;
                 default:
-                    WarnOutOfRange();
+                    Warn("You have not selected an option within the specified range.");
                     break;
             }
         }
@@ -61,11 +63,13 @@ namespace Presentation
                 else
                     IO.Print(IO.Type.ERROR, "Sorry, the customer number entered does not match the records in our database.");
             }
+            else
+                Warn("Input not in correct format, please try again!");
         }
 
-        static void WarnOutOfRange() 
+        static void Warn(string message) 
         {
-            IO.Print(IO.Type.ERROR, "You have not selected an option within the specified range.");
+            IO.Print(IO.Type.ERROR, message);
             IO.Print("Please press a key to continue...", false);
             Console.ReadKey();
             Console.Clear();
