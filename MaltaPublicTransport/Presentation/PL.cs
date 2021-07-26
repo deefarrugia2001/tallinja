@@ -68,9 +68,11 @@ namespace Presentation
                 if (businessLayer.ValidateCustomerNumber(customerNumber))
                 {
                     IO.Print(IO.Type.SUCCESS, "The customer number entered matches the records in our database.");
+                    Commuter commuter = new Commuter();
 
                     do
                     {
+                        commuter.AddOptionsToMenu();
                     }
                     while (isCommuterLoggedIn);
                 }
