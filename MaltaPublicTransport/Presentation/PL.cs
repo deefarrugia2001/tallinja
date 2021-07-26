@@ -132,9 +132,9 @@ namespace Presentation
 
             if(menu is Commuter)
                 options = new Commuter().AddOptionsToMenu();
-            
-            if(menu is Login)
-                options = new Login().AddOptionsToMenu()
+
+            if (menu is Login)
+                options = new Login().AddOptionsToMenu();
             
             return options;
         }
