@@ -15,12 +15,13 @@ BEGIN
 
 	CREATE TABLE Customers (
 		customer_id UNIQUEIDENTIFIER DEFAULT NEWID() PRIMARY KEY,
-		customer_number INTEGER UNIQUE NOT NULL CHECK (LEN(customer_number) = 8) -- Check that the customer number is exactly eight characters long.
+		customer_number INTEGER UNIQUE NOT NULL CHECK (LEN(customer_number) = 8), -- Check that the customer number is exactly eight characters long.
+		date DATETIME NOT NULL
 	);
 
 	CREATE TABLE CustomersBalance (
-		customer_id UNIQUEIDENTIFIER DEFAULT NEWID() FOREIGN KEY REFERENCES customers(customer_id),
+		customer_id UNIQUEIDENTIFIER DEFAULT NEWID() FOREIGN KEY REFERENCES Customers(customer_id),
 		balance DECIMAL(6,2) NOT NULL CHECK (balance < 0), -- Check that the balance is greater than 0.
-		date DATE NOT NULL
+		date DATETIME NOT NULL
 	);
 END
