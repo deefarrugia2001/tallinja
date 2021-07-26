@@ -176,12 +176,17 @@ namespace Presentation
             isCommuterLoggedIn = false;
         }
 
-        static void Warn(string message) 
+        static void Warn(string message)
         {
             IO.Print(IO.Type.ERROR, $"\n{message}");
+            PromptForKeyPress();
+            Console.Clear();
+        }
+
+        static void PromptForKeyPress()
+        {
             IO.Print("Please press a key to continue...", false);
             Console.ReadKey();
-            Console.Clear();
         }
 
         static string DisplayMenu(Menu menu) 
