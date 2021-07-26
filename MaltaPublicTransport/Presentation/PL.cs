@@ -27,17 +27,7 @@ namespace Presentation
 
                 if(isByte) 
                 {
-                    switch(selection) 
-                    {
-                        case 1:
-                            break;
-                        case 2:
-                            Exit();
-                            break;
-                        default:
-                            WarnOutOfRange();
-                            break;
-                    }
+                    ProceedLoginMenu(selection);
                 }
             }
             while(isProgramRunning);
@@ -48,8 +38,13 @@ namespace Presentation
             switch(selection) 
             {
                 case 1:
+                    Login();
                     break;
                 case 2:
+                    Exit();
+                    break;
+                default:
+                    WarnOutOfRange();
                     break;
             }
         }
