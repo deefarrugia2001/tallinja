@@ -8,5 +8,9 @@ namespace Presentation
 {
     class Commuter : Menu
     {
+        public Commuter()
+        {
+
+        }
     }
 }
