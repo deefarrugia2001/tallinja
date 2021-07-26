@@ -58,6 +58,10 @@ namespace Presentation
             }
         }
 
+        static void ProceedCommuterMenu(byte selection) 
+        {
+        }
+
         static void Login() 
         {
             Console.Clear();
@@ -77,6 +81,10 @@ namespace Presentation
 
                         Console.WriteLine(DisplayMenu(commuter));
                         isInputFormatCorrect = byte.TryParse(Console.ReadLine(), out selection);
+
+                        if(isInputFormatCorrect) 
+                        {
+                        }
                     }
                     while (isCommuterLoggedIn);
                 }
