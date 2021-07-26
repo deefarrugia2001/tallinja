@@ -83,8 +83,9 @@ namespace Presentation
                         isInputFormatCorrect = byte.TryParse(Console.ReadLine(), out selection);
 
                         if(isInputFormatCorrect) 
-                        {
-                        }
+                            ProceedCommuterMenu(selection);
+                        else 
+                            Warn("You have not selected an option within the specified range.");
                     }
                     while (isCommuterLoggedIn);
                 }
