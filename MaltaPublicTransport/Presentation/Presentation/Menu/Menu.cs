@@ -25,6 +25,19 @@ namespace Presentation
             }
 
             return menu;
-        } 
+        }
+
+        public string DisplayMenu()
+        {
+            string options = string.Empty;
+
+            if (this is Commuter)
+                options = new Commuter().AddOptionsToMenu();
+
+            if (this is Login)
+                options = new Login().AddOptionsToMenu();
+
+            return options;
+        }
     }
 }

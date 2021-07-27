@@ -28,7 +28,7 @@ namespace Presentation
 
                 Console.Clear();
 
-                IO.Print(DisplayMenu(login));
+                IO.Print(login.DisplayMenu());
                 IO.Print("Please select an option from the menu: ", false);
                 isInputFormatCorrect = byte.TryParse(Console.ReadLine(), out selection);
 
@@ -120,7 +120,7 @@ namespace Presentation
                     {
                         Console.Clear();
 
-                        IO.Print(DisplayMenu(commuter));
+                        IO.Print(commuter.DisplayMenu());
                         IO.Print("Please select an option from the menu: ", false);
                         isInputFormatCorrect = byte.TryParse(Console.ReadLine(), out selection);
 
@@ -188,19 +188,6 @@ namespace Presentation
         {
             IO.Print("Please press a key to continue...", false);
             Console.ReadKey();
-        }
-
-        static string DisplayMenu(Menu menu) 
-        {
-            string options = string.Empty;
-
-            if(menu is Commuter)
-                options = new Commuter().AddOptionsToMenu();
-
-            if (menu is Login)
-                options = new Login().AddOptionsToMenu();
-
-            return options;
         }
     }
 }
