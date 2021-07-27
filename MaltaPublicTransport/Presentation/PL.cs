@@ -99,7 +99,7 @@ namespace Presentation
             int customerID = businessLayer.FetchCustomerID(customerNumber);
             Console.WriteLine(customerID);
             //businessLayer.AddBalance(customerID, balance);
-            Thread.Sleep(2000);
+            Wait(2000);
             PromptForKeyPress();
         }
 
@@ -165,7 +165,7 @@ namespace Presentation
         {
             Console.Clear();
             IO.Print("Exiting from application...");
-            Thread.Sleep(1000);
+            Wait(1000);
             isProgramRunning = false;
         }
 
@@ -173,7 +173,7 @@ namespace Presentation
         {
             Console.Clear();
             IO.Print("Logging you out...");
-            Thread.Sleep(1000);
+            Wait(1000);
             isCommuterLoggedIn = false;
         }
 
