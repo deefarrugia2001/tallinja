@@ -96,11 +96,11 @@ namespace Presentation
 
         static void Deactivate()
         {
+            IO.Print(IO.Type.ERROR, "WARNING: All data will be erased!");
             IO.Print("Are you sure you want to proceed?: ", false);
-            char confirmation = Convert.ToChar(Console.ReadLine());
-            string deactivateChoice = confirmation.ToString();
+            string deactivateChoice = Console.ReadLine();
 
-            if(deactivateChoice.ToUpper() == "Y" || deactivateChoice.ToLower() == "y") 
+            if (deactivateChoice.ToUpper() == "Y" || deactivateChoice.ToLower() == "y") 
             {
                 bool isDeletionSuccessful = businessLayer.RemoveCustomer(customerNumber);
 
