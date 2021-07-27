@@ -96,9 +96,7 @@ namespace Presentation
         {
             decimal balance = businessLayer.FetchBalance(customerNumber);
             IO.Print(IO.Type.SUCCESS, $"Dear commuter, you have EUR {balance} left.");
-            int customerID = businessLayer.FetchCustomerID(customerNumber);
-            Console.WriteLine(customerID);
-            //businessLayer.AddBalance(customerID, balance);
+            businessLayer.AddBalance(customerNumber, balance);
             Wait(2000);
             PromptForKeyPress();
         }
