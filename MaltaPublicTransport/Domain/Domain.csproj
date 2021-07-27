@@ -50,15 +50,55 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Customer.cs">
+      <DependentUpon>MaltaPublicTransport.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustomersBalance.cs">
+      <DependentUpon>MaltaPublicTransport.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MaltaPublicTransport.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MaltaPublicTransport.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MaltaPublicTransport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MaltaPublicTransport.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MaltaPublicTransport.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MaltaPublicTransport.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TypeEdit.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
+    <EntityDeploy Include="MaltaPublicTransport.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MaltaPublicTransport.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="MaltaPublicTransport.edmx.diagram">
+      <DependentUpon>MaltaPublicTransport.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MaltaPublicTransport.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MaltaPublicTransport.edmx</DependentUpon>
+      <LastGenOutput>MaltaPublicTransport.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="MaltaPublicTransport.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MaltaPublicTransport.edmx</DependentUpon>
+      <LastGenOutput>MaltaPublicTransport.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
