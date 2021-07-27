@@ -83,7 +83,13 @@ namespace Presentation
 
         static void Deactivate()
         {
-            throw new NotImplementedException();
+            IO.Print("Are you sure you want to proceed?: ", false);
+            char confirmation = Convert.ToChar(Console.ReadLine());
+            string deactivateChoice = confirmation.ToString();
+
+            if(deactivateChoice.ToUpper() == "Y" || deactivateChoice.ToLower() == "y") 
+            {
+            }
         }
 
         static void ViewChecksOnParticularDay()
