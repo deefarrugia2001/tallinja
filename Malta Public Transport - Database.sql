@@ -5,7 +5,8 @@
  * sys.databases contains information related to all databases within the currently connected server. */
 IF EXISTS (SELECT * FROM sys.databases WHERE name = 'Tallinja') -- Check whether the database named tallinja exists within the current server.
 BEGIN
-	USE master; -- Switch control to the default database.
+	USE master;-- Switch control to the default database.
+
 	DROP DATABASE Tallinja; -- Delete the tallinja database.
 END
 
