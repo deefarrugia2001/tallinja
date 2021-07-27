@@ -89,6 +89,12 @@ namespace Presentation
 
             if(deactivateChoice.ToUpper() == "Y" || deactivateChoice.ToLower() == "y") 
             {
+                bool isDeletionSuccessful = businessLayer.RemoveCustomer(customerNumber);
+
+                if (isDeletionSuccessful)
+                    IO.Print(IO.Type.SUCCESS, "Commuter has been deactivated successfully!");
+                else
+                    IO.Print(IO.Type.ERROR, "Unable to deactivate commuter!");
             }
         }
 
