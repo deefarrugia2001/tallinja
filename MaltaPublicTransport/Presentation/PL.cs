@@ -105,7 +105,10 @@ namespace Presentation
                 bool isDeletionSuccessful = businessLayer.RemoveCustomer(customerNumber);
 
                 if (isDeletionSuccessful)
+                {
                     IO.Print(IO.Type.SUCCESS, "Commuter has been deactivated successfully!");
+                    isCommuterLoggedIn = false;
+                }
                 else
                     IO.Print(IO.Type.ERROR, "Unable to deactivate commuter!");
             }
