@@ -96,6 +96,7 @@ namespace Presentation
 
         static void Deactivate()
         {
+            bool deletionNotYetConfirmed = true;
             string deactivateChoice = string.Empty;
 
             do
@@ -129,7 +130,7 @@ namespace Presentation
                     PromptForKeyPress();
                 }
             }
-            while ((deactivateChoice.ToUpper() != "Y" || deactivateChoice.ToLower() != "y") || (deactivateChoice.ToUpper() != "N" || deactivateChoice.ToLower() != "n"));
+            while ((deactivateChoice.ToUpper() != "Y" || deactivateChoice.ToLower() != "y") && (deactivateChoice.ToUpper() != "N" || deactivateChoice.ToLower() != "n"));
         }
 
         static void ViewChecksOnParticularDay()
