@@ -74,6 +74,13 @@ namespace Data
 
             try
             {
+                List<CustomersBalance> transactions = GetBalanceTransactions(customerNumber);
+                if(transactions.Count > 0)
+                {
+                    foreach (CustomersBalance transaction in transactions)
+                        mptDB.CustomersBalances.Remove(transaction);
+                }
+
                 Customer customerToRemove = FetchCustomerByCN(customerNumber);
                 mptDB.Customers.Remove(customerToRemove);
                 mptDB.SaveChanges();
