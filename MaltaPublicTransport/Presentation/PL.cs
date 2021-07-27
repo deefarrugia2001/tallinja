@@ -96,22 +96,40 @@ namespace Presentation
 
         static void Deactivate()
         {
-            IO.Print(IO.Type.ERROR, "WARNING: All data will be erased!");
-            IO.Print("Are you sure you want to proceed?: ", false);
-            string deactivateChoice = Console.ReadLine();
+            string deactivateChoice = string.Empty;
 
-            if (deactivateChoice.ToUpper() == "Y" || deactivateChoice.ToLower() == "y") 
+            do
             {
-                bool isDeletionSuccessful = businessLayer.RemoveCustomer(customerNumber);
+                Console.Clear();
 
-                if (isDeletionSuccessful)
+                IO.Print(IO.Type.ERROR, "WARNING: All data will be erased!");
+                IO.Print("Are you sure you want to proceed?: ", false);
+                deactivateChoice = Console.ReadLine();
+
+                if (deactivateChoice.ToUpper() == "Y" || deactivateChoice.ToLower() == "y")
                 {
-                    IO.Print(IO.Type.SUCCESS, "Commuter has been deactivated successfully!");
-                    isCommuterLoggedIn = false;
+                    bool isDeletionSuccessful = businessLayer.RemoveCustomer(customerNumber);
+
+                    if (isDeletionSuccessful)
+                    {
+                        IO.Print(IO.Type.SUCCESS, "Commuter has been deactivated successfully!");
+                        isCommuterLoggedIn = false;
+                    }
+                    else
+                        IO.Print(IO.Type.ERROR, "Unable to deactivate commuter!");
+                }
+                else if (deactivateChoice.ToUpper() == "N" || deactivateChoice.ToLower() == "n")
+                {
+                    IO.Print("Returning to Commuter's menu...");
+                    PromptForKeyPress();
                 }
                 else
-                    IO.Print(IO.Type.ERROR, "Unable to deactivate commuter!");
+                {
+                    IO.Print("\nInput not in correct format, please try again!");
+                    PromptForKeyPress();
+                }
             }
+            while ((deactivateChoice.ToUpper() != "Y" || deactivateChoice.ToLower() != "y") || (deactivateChoice.ToUpper() != "N" || deactivateChoice.ToLower() != "n"));
         }
 
         static void ViewChecksOnParticularDay()
