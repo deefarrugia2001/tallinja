@@ -47,7 +47,15 @@ namespace Business
 
         public string GetBalanceTransactions(int customerNumber) 
         {
-            List<CustomersBalance>
+            string transactionHistory = $"Balance\tDate checked\n=======\t============\n";
+
+            List<CustomersBalance> transactions = dataLayer.GetBalanceTransactions(customerNumber);
+            foreach(CustomersBalance transaction in transactions)
+            {
+                transactionHistory += $"{transaction.balance} | {transaction.date}\n";
+            }
+
+            return transactionHistory;
         }
 
         public int GetAdmissionsOnDate(int day, int month, int year)
