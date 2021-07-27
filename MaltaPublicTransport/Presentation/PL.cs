@@ -98,8 +98,7 @@ namespace Presentation
             int customerID = businessLayer.FetchCustomerID(customerNumber);
             businessLayer.AddBalance(customerID, balance);
             Thread.Sleep(2000);
-            IO.Print("Press a key to continue...", false);
-            Console.ReadKey();
+            PromptForKeyPress();
         }
 
         static void Login() 

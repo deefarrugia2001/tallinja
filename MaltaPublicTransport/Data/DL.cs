@@ -86,6 +86,13 @@ namespace Data
             mptDB.SaveChanges();
         }
 
+        public void UpdateBalance(int customerNumber) 
+        {
+            Customer customerToFetch = FetchCustomerByCN(customerNumber);
+            customerToFetch.
+
+        }
+
         public bool AddCustomer(int customerNumber) 
         {
             bool commitSuccessful = true;
