@@ -18,7 +18,7 @@ GO
 
 CREATE TABLE Customers (
 	customer_id INTEGER IDENTITY(1,1) PRIMARY KEY,
-	customer_number INTEGER UNIQUE NOT NULL CHECK (LEN(customer_number) BETWEEN 6 AND 10), -- Check that the customer number is exactly eight characters long.
+	customer_number INTEGER UNIQUE NOT NULL CHECK (LEN(customer_number) BETWEEN 6 AND 10), -- Check that the customer number is between 6 to 10 characters long.
 	date DATETIME NOT NULL DEFAULT GETDATE()
 );
 
