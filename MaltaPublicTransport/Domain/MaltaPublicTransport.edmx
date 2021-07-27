@@ -12,7 +12,6 @@
           <Property Name="customer_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="customer_number" Type="int" Nullable="false" />
           <Property Name="date" Type="datetime" Nullable="false" />
-          <Property Name="Balance" Type="decimal" Precision="6" Scale="2" />
         </EntityType>
         <EntityType Name="CustomersBalance">
           <Key>
@@ -54,7 +53,6 @@
           <Property Name="customer_number" Type="Int32" Nullable="false" />
           <Property Name="date" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="CustomersBalance" Relationship="Self.FK__Customers__custo__3A81B327" FromRole="Customers" ToRole="CustomersBalance" />
-          <Property Name="Balance" Type="Decimal" Precision="6" Scale="2" />
         </EntityType>
         <EntityType Name="CustomersBalance">
           <Key>
@@ -94,7 +92,6 @@
           <EntitySetMapping Name="Customers">
             <EntityTypeMapping TypeName="TallinjaModel.Customer">
               <MappingFragment StoreEntitySet="Customers">
-                <ScalarProperty Name="Balance" ColumnName="Balance" />
                 <ScalarProperty Name="customer_id" ColumnName="customer_id" />
                 <ScalarProperty Name="customer_number" ColumnName="customer_number" />
                 <ScalarProperty Name="date" ColumnName="date" />
