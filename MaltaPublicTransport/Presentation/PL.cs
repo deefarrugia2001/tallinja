@@ -91,7 +91,6 @@ namespace Presentation
             throw new NotImplementedException();
         }
 
-        //TODO: Try to solve businessLayer.AddBalance as exceptions are being thrown.
         static void CheckBalance()
         {
             decimal balance = businessLayer.FetchBalance(customerNumber);
