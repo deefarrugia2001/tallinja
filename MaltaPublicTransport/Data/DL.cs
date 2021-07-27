@@ -59,6 +59,14 @@ namespace Data
             return customerNumbers;
         }
 
+        public List<CustomersBalance> GetBalanceTransactions(int customerNumber) 
+        {
+            List<CustomersBalance> balanceTransactions = new List<CustomersBalance>(from transaction in mptDB.CustomersBalances
+                                                                                    where transaction.customer_id == customerNumber
+                                                                                    select transaction);
+            return balanceTransactions;
+        }
+
         public bool RemoveCustomer(int customerNumber) 
         {
             bool commitSuccessful = true;
