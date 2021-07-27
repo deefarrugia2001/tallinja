@@ -84,9 +84,11 @@ namespace Presentation
             }
         }
 
-        private static void ViewAllChecks()
+        static void ViewAllChecks()
         {
-            throw new NotImplementedException();
+            string balanceHistory = businessLayer.GetBalanceTransactions(customerNumber);
+            IO.Print(balanceHistory);
+            PromptForKeyPress();
         }
 
         static void Deactivate()

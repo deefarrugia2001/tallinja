@@ -61,8 +61,9 @@ namespace Data
 
         public List<CustomersBalance> GetBalanceTransactions(int customerNumber) 
         {
+            int customerID = FetchCustomerID(customerNumber);
             List<CustomersBalance> balanceTransactions = new List<CustomersBalance>(from transaction in mptDB.CustomersBalances
-                                                                                    where transaction.customer_id == customerNumber
+                                                                                    where transaction.customer_id == customerID
                                                                                     select transaction);
             return balanceTransactions;
         }
