@@ -47,13 +47,20 @@ namespace Business
 
         public string GetBalanceTransactions(int customerNumber) 
         {
-            string transactionHistory = $"Balance\tDate checked\n=======\t============\n";
-
+            string transactionHistory = string.Empty;
             List<CustomersBalance> transactions = dataLayer.GetBalanceTransactions(customerNumber);
-            foreach(CustomersBalance transaction in transactions)
+
+            if (transactions.Count > 0)
             {
-                transactionHistory += $"{transaction.balance} | {transaction.date}\n";
+                transactionHistory += $"Balance\tDate checked\n=======\t===================\n";
+
+                foreach (CustomersBalance transaction in transactions)
+                {
+                    transactionHistory += $"{transaction.balance}\t{transaction.date}\n";
+                }
             }
+            else
+                transactionHistory = "Sorry, no transactions were found!";
 
             return transactionHistory;
         }
