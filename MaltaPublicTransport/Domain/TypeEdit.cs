@@ -28,6 +28,7 @@ namespace Domain
 
         public CustomersBalance(int customerID, decimal balance) 
         {
+            this.customer_id = customerID;
             this.balance = balance;
             this.date = DateTime.Now;
         }
