@@ -189,5 +189,10 @@ namespace Presentation
             IO.Print("Please press a key to continue...", false);
             Console.ReadKey();
         }
+
+        static void Wait(int delay) 
+        {
+            Thread.Sleep(delay);
+        }
     }
 }
