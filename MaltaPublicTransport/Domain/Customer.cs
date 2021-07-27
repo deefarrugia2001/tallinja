@@ -17,7 +17,6 @@ namespace Domain
         public int customer_id { get; set; }
         public int customer_number { get; set; }
         public System.DateTime date { get; set; }
-        public Nullable<decimal> Balance { get; set; }
     
         public virtual CustomersBalance CustomersBalance { get; set; }
     }
