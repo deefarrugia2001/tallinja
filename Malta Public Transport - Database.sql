@@ -20,7 +20,7 @@ BEGIN
 	);
 
 	CREATE TABLE CustomersBalance (
-		customer_id INTEGER FOREIGN KEY REFERENCES Customers(customer_id) PRIMARY KEY,
+		customer_id INTEGER FOREIGN KEY REFERENCES Customers(customer_id),
 		balance DECIMAL(6,2) NOT NULL CHECK (balance > 0), -- Check that the balance is greater than 0.
 		date DATETIME NOT NULL
 	);
