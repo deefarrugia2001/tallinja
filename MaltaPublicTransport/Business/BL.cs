@@ -5,6 +5,7 @@ using Domain;
 using WebScraping;
 using System;
 using OpenQA.Selenium;
+using System.Collections.Generic;
 
 namespace Business
 {
@@ -42,6 +43,11 @@ namespace Business
         public void CommitToCustomers(Command command, int customerNumber)
         {
             dataLayer.CommitToCustomer(command, customerNumber);
+        }
+
+        public string GetBalanceTransactions(int customerNumber) 
+        {
+            List<CustomersBalance>
         }
 
         public int GetAdmissionsOnDate(int day, int month, int year)
