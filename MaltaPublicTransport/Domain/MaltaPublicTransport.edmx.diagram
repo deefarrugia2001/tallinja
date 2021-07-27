@@ -4,10 +4,10 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="96a7624172fe4705b2c010cb32a3f948" Name="Diagram1">
+      <Diagram DiagramId="937016516bf04ebf8045dbc9564f72c6" Name="Diagram1">
         <EntityTypeShape EntityType="TallinjaModel.Customer" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="TallinjaModel.CustomersBalance" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
-        <AssociationConnector Association="TallinjaModel.FK__Customers__custo__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="TallinjaModel.FK__Customers__custo__3B75D760" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -13,20 +13,17 @@
           <Property Name="customer_number" Type="int" Nullable="false" />
           <Property Name="date" Type="datetime" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'Tallinja.dbo.CustomersBalance' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="CustomersBalance">
           <Key>
-            <PropertyRef Name="balance" />
-            <PropertyRef Name="date" />
+            <PropertyRef Name="customer_id" />
           </Key>
-          <Property Name="customer_id" Type="int" />
+          <Property Name="customer_id" Type="int" Nullable="false" />
           <Property Name="balance" Type="decimal" Precision="6" Scale="2" Nullable="false" />
           <Property Name="date" Type="datetime" Nullable="false" />
         </EntityType>
-        <Association Name="FK__Customers__custo__398D8EEE">
-          <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
-          <End Role="CustomersBalance" Type="Self.CustomersBalance" Multiplicity="*" />
+        <Association Name="FK__Customers__custo__3B75D760">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="CustomersBalance" Type="Self.CustomersBalance" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Customers">
               <PropertyRef Name="customer_id" />
@@ -38,14 +35,8 @@ warning 6002: The table/view 'Tallinja.dbo.CustomersBalance' does not have a pri
         </Association>
         <EntityContainer Name="TallinjaModelStoreContainer">
           <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="CustomersBalance" EntityType="Self.CustomersBalance" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [CustomersBalance].[customer_id] AS [customer_id], 
-    [CustomersBalance].[balance] AS [balance], 
-    [CustomersBalance].[date] AS [date]
-    FROM [dbo].[CustomersBalance] AS [CustomersBalance]</DefiningQuery>
-          </EntitySet>
-          <AssociationSet Name="FK__Customers__custo__398D8EEE" Association="Self.FK__Customers__custo__398D8EEE">
+          <EntitySet Name="CustomersBalance" EntityType="Self.CustomersBalance" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Customers__custo__3B75D760" Association="Self.FK__Customers__custo__3B75D760">
             <End Role="Customers" EntitySet="Customers" />
             <End Role="CustomersBalance" EntitySet="CustomersBalance" />
           </AssociationSet>
@@ -62,21 +53,20 @@ warning 6002: The table/view 'Tallinja.dbo.CustomersBalance' does not have a pri
           <Property Name="customer_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="customer_number" Type="Int32" Nullable="false" />
           <Property Name="date" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="CustomersBalances" Relationship="Self.FK__Customers__custo__398D8EEE" FromRole="Customers" ToRole="CustomersBalance" />
+          <NavigationProperty Name="CustomersBalance" Relationship="Self.FK__Customers__custo__3B75D760" FromRole="Customers" ToRole="CustomersBalance" />
         </EntityType>
         <EntityType Name="CustomersBalance">
           <Key>
-            <PropertyRef Name="balance" />
-            <PropertyRef Name="date" />
+            <PropertyRef Name="customer_id" />
           </Key>
-          <Property Name="customer_id" Type="Int32" />
+          <Property Name="customer_id" Type="Int32" Nullable="false" />
           <Property Name="balance" Type="Decimal" Precision="6" Scale="2" Nullable="false" />
           <Property Name="date" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="Customer" Relationship="Self.FK__Customers__custo__398D8EEE" FromRole="CustomersBalance" ToRole="Customers" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK__Customers__custo__3B75D760" FromRole="CustomersBalance" ToRole="Customers" />
         </EntityType>
-        <Association Name="FK__Customers__custo__398D8EEE">
-          <End Role="Customers" Type="Self.Customer" Multiplicity="0..1" />
-          <End Role="CustomersBalance" Type="Self.CustomersBalance" Multiplicity="*" />
+        <Association Name="FK__Customers__custo__3B75D760">
+          <End Role="Customers" Type="Self.Customer" Multiplicity="1" />
+          <End Role="CustomersBalance" Type="Self.CustomersBalance" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Customers">
               <PropertyRef Name="customer_id" />
@@ -89,7 +79,7 @@ warning 6002: The table/view 'Tallinja.dbo.CustomersBalance' does not have a pri
         <EntityContainer Name="TallinjaEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Customers" EntityType="Self.Customer" />
           <EntitySet Name="CustomersBalances" EntityType="Self.CustomersBalance" />
-          <AssociationSet Name="FK__Customers__custo__398D8EEE" Association="Self.FK__Customers__custo__398D8EEE">
+          <AssociationSet Name="FK__Customers__custo__3B75D760" Association="Self.FK__Customers__custo__3B75D760">
             <End Role="Customers" EntitySet="Customers" />
             <End Role="CustomersBalance" EntitySet="CustomersBalances" />
           </AssociationSet>

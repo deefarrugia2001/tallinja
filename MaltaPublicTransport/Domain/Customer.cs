@@ -14,17 +14,10 @@ namespace Domain
     
     public partial class Customer
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Customer()
-        {
-            this.CustomersBalances = new HashSet<CustomersBalance>();
-        }
-    
         public int customer_id { get; set; }
         public int customer_number { get; set; }
         public System.DateTime date { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CustomersBalance> CustomersBalances { get; set; }
+        public virtual CustomersBalance CustomersBalance { get; set; }
     }
 }

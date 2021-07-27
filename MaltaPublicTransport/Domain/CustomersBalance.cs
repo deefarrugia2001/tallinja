@@ -14,7 +14,7 @@ namespace Domain
     
     public partial class CustomersBalance
     {
-        public Nullable<int> customer_id { get; set; }
+        public int customer_id { get; set; }
         public decimal balance { get; set; }
         public System.DateTime date { get; set; }
     
