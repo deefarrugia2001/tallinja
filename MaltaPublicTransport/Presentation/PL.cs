@@ -70,15 +70,23 @@ namespace Presentation
                     ViewChecksOnParticularDay();
                     break;
                 case 3:
-                    Deactivate();
+                    ViewAllChecks();
                     break;
                 case 4:
+                    Deactivate();
+                    break;
+                case 5:
                     Logout();
                     break;
                 default:
                     Warn("You have not selected an option within the specified range.");
                     break;
             }
+        }
+
+        private static void ViewAllChecks()
+        {
+            throw new NotImplementedException();
         }
 
         static void Deactivate()
