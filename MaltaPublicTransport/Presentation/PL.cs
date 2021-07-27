@@ -91,12 +91,14 @@ namespace Presentation
             throw new NotImplementedException();
         }
 
+        //TODO: Try to solve businessLayer.AddBalance as exceptions are being thrown.
         static void CheckBalance(int customerNumber)
         {
             decimal balance = businessLayer.FetchBalance(customerNumber);
             IO.Print(IO.Type.SUCCESS, $"Dear commuter, you have EUR {balance} left.");
             int customerID = businessLayer.FetchCustomerID(customerNumber);
-            businessLayer.AddBalance(customerID, balance);
+            Console.WriteLine(customerID);
+            //businessLayer.AddBalance(customerID, balance);
             Thread.Sleep(2000);
             PromptForKeyPress();
         }
