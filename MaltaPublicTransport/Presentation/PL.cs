@@ -87,7 +87,10 @@ namespace Presentation
         static void ViewAllChecks()
         {
             string balanceHistory = businessLayer.GetBalanceTransactions(customerNumber);
-            IO.Print(balanceHistory);
+            if (balanceHistory != string.Empty)
+                IO.Print(balanceHistory);
+            else
+                IO.Print(IO.Type.ERROR, "\nSorry, no transactions were found!");
             PromptForKeyPress();
         }
 

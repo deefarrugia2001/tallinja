@@ -59,8 +59,6 @@ namespace Business
                     transactionHistory += $"{transaction.balance}\t{transaction.date}\n";
                 }
             }
-            else
-                transactionHistory = "Sorry, no transactions were found!";
 
             return transactionHistory;
         }
