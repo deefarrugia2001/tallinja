@@ -212,7 +212,7 @@ namespace Presentation
             {
                 if (businessLayer.ValidateCustomerNumber(customerNumber))
                 {
-                    IO.Print(IO.Type.SUCCESS, "The customer number entered matches the records in our database.");
+                    IO.Print(IO.Type.SUCCESS, "Logging you in...");
                     Commuter commuter = new Commuter();
 
                     do
@@ -231,7 +231,7 @@ namespace Presentation
                     while (isCommuterLoggedIn);
                 }
                 else
-                    IO.Print(IO.Type.ERROR, "Sorry, the customer number entered does not match the records in our database.");
+                    IO.Print(IO.Type.ERROR, "Unable to log you in!");
             }
             else
                 Warn("Input not in correct format, please try again!");
