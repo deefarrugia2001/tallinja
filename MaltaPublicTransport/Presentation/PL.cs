@@ -149,15 +149,22 @@ namespace Presentation
         {
             int day, month, year;
 
-            IO.Print("Day: ");
-            day = Convert.ToInt32(Console.ReadLine());
-            IO.Print("Month: ");
-            month = Convert.ToInt32(Console.ReadLine());
-            IO.Print("Year: ");
-            year = Convert.ToInt32(Console.ReadLine());
+            try
+            {
+                IO.Print("Day: ");
+                day = Convert.ToInt32(Console.ReadLine());
+                IO.Print("Month: ");
+                month = Convert.ToInt32(Console.ReadLine());
+                IO.Print("Year: ");
+                year = Convert.ToInt32(Console.ReadLine());
 
-            string transactionOnDay = businessLayer.GetBalanceTransactionsOnDate(customerNumber, day, month, year);
-            IO.Print(transactionOnDay);
+                string transactionOnDay = businessLayer.GetBalanceTransactionsOnDate(customerNumber, day, month, year);
+                IO.Print(transactionOnDay);
+            }
+            catch(FormatException)
+            {
+                IO.Print(IO.Type.ERROR, "");
+            }
         }
 
         static void CheckBalance()
