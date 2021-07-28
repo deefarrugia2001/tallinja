@@ -49,14 +49,11 @@ namespace Business
         {
             string transactionHistory = string.Empty;
             List<CustomersBalance> transactions = dataLayer.GetBalanceTransactions(customerNumber);
+            
+            transactionHistory += $"Balance\tDate checked\n=======\t===================\n";
 
-            if (transactions.Count > 0)
-            {
-                transactionHistory += $"Balance\tDate checked\n=======\t===================\n";
-
-                foreach (CustomersBalance transaction in transactions)
-                    transactionHistory += GetBalanceTransactions(transaction);
-            }
+            foreach (CustomersBalance transaction in transactions)
+                transactionHistory += GetBalanceTransactions(transaction);
 
             return transactionHistory;
         }
@@ -69,7 +66,8 @@ namespace Business
         public string GetCommuterInformation(int customerNumber) 
         {
             Customer customer = dataLayer.FetchCustomerByCN(customerNumber);
-            string commuterInformation = $"Customer number: {customer.customer_number}\nDate joined: {customer.date}";
+            int allTransactionCount = GetAllTransactionsCount(customerNumber);
+            string commuterInformation = $"Customer number: {customer.customer_number}\nDate joined: {customer.date}\nTotal balance checks: ${allTransactionCount}";
             return commuterInformation;
         }
 
