@@ -67,7 +67,9 @@ namespace Business
         {
             Customer customer = dataLayer.FetchCustomerByCN(customerNumber);
             int allTransactionCount = GetAllTransactionsCount(customerNumber);
-            string commuterInformation = $"Customer number: {customer.customer_number}\nDate joined: {customer.date}\nTotal balance checks: ${allTransactionCount}";
+            DateTime dateLastChecked = dataLayer.GetLastTransaction(customerNumber).date;
+
+            string commuterInformation = $"Customer number: {customer.customer_number}\nDate joined: {customer.date}\nTotal balance checks: ${allTransactionCount}\nDate last checked: {dateLastChecked}";
             return commuterInformation;
         }
 
