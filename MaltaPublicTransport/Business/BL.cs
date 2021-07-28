@@ -82,6 +82,14 @@ namespace Business
             return admissionsCount;
         }
 
+        public int GetTransactionsOnDate(int customerNumber, int day, int month, int year)
+        {
+            DateTime checkDate = new DateTime(year, month, day);
+            DateTime postCheckDate = checkDate.AddDays(1);
+            int transactionCount = dataLayer.GetAdmissionsOnDate(checkDate, postCheckDate).Count;
+            return transactionCount;
+        }
+
         public string GetBalanceTransactionsOnDate(int customerNumber, int day, int month, int year) 
         {
             string transactionHistoryOnDate = string.Empty;
@@ -99,7 +107,11 @@ namespace Business
                     foreach (CustomersBalance transaction in transactions)
                         transactionHistoryOnDate += GetBalanceTransactions(transaction);
                 }
+                else
+                    transactionHistoryOnDate = "Sorry, no transactions found!";
             }
+            else
+                transactionHistoryOnDate = "Starting date cannot be a future date!";
 
             return transactionHistoryOnDate;
         }
