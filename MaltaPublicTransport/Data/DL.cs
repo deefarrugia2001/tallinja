@@ -77,6 +77,11 @@ namespace Data
             return balanceTransactions;
         }
 
+        public CustomersBalance GetLastTransaction(int customerNumber)
+        {
+            return GetBalanceTransactions(customerNumber).LastOrDefault();
+        }
+
         public bool RemoveCustomer(int customerNumber) 
         {
             bool commitSuccessful = true;
