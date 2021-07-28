@@ -248,7 +248,7 @@ namespace Presentation
                 bool notRegisteredWithTallinja = businessLayer.CheckCommuterAnomaly(customerNumber);
 
                 if (notRegisteredWithTallinja)
-                    IO.Print(IO.Type.ERROR, "This tallinja card was not found. Please ensure that the tallinja card customer number you entered is correct.");
+                    IO.Print(IO.Type.ERROR, "This customer number is not registered with Malta Public Transport!");
                 else
                 {
                     if (businessLayer.VerifyCNUniqueness(customerNumber))
