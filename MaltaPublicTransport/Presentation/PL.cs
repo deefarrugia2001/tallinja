@@ -158,8 +158,22 @@ namespace Presentation
                 IO.Print("Year: ", false);
                 year = Convert.ToInt32(Console.ReadLine());
 
-                string transactionOnDay = businessLayer.GetBalanceTransactionsOnDate(customerNumber, day, month, year);
-                IO.Print(transactionOnDay);
+                if(businessLayer.CheckIfFutureDate(day, month, year))
+                {
+                    IO.Print(IO.Type.ERROR, "Date cannot be in the future!");
+                }
+                else
+                {
+                    int transactionCount = businessLayer.GetTransactionCountOnDate(customerNumber, day, month, year);
+                    if (transactionCount > 0)
+                    {
+                        string transactionOnDay = businessLayer.GetBalanceTransactionsOnDate(customerNumber, day, month, year);
+                        IO.Print(transactionOnDay);
+                        PromptForKeyPress();
+                    }
+                    else
+                        IO.Print(IO.Type.ERROR, "Sorry, no transactions found!");
+                }
             }
             catch(FormatException)
             {

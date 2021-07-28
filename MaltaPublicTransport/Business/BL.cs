@@ -82,7 +82,7 @@ namespace Business
             return admissionsCount;
         }
 
-        public int GetTransactionsOnDate(int customerNumber, int day, int month, int year)
+        public int GetTransactionCountOnDate(int customerNumber, int day, int month, int year)
         {
             DateTime checkDate = new DateTime(year, month, day);
             DateTime postCheckDate = checkDate.AddDays(1);
@@ -90,28 +90,27 @@ namespace Business
             return transactionCount;
         }
 
+        public bool CheckIfFutureDate(int day, int month, int year) 
+        {
+            DateTime checkDate = new DateTime(year, month, day);
+            return checkDate > DateTime.Today;
+        }
+
         public string GetBalanceTransactionsOnDate(int customerNumber, int day, int month, int year) 
         {
             string transactionHistoryOnDate = string.Empty;
             DateTime checkDate = new DateTime(year, month, day);
 
-            if (!(checkDate > DateTime.Today))
-            {
-                DateTime dayPostCheckBalance = new DateTime(year, month, day);
-                List<CustomersBalance> transactions = dataLayer.GetBalanceTransactionsOnDate(customerNumber, checkDate, dayPostCheckBalance);
-                int transactionCount = transactions.Count;
+            DateTime dayPostCheckBalance = new DateTime(year, month, day);
+            List<CustomersBalance> transactions = dataLayer.GetBalanceTransactionsOnDate(customerNumber, checkDate, dayPostCheckBalance);
+            int transactionCount = transactions.Count;
 
-                if (transactionCount > 0)
-                {
-                    transactionHistoryOnDate += $"There are a total of {transactionCount} transactions:\n";
-                    foreach (CustomersBalance transaction in transactions)
-                        transactionHistoryOnDate += GetBalanceTransactions(transaction);
-                }
-                else
-                    transactionHistoryOnDate = "Sorry, no transactions found!";
+            if (transactionCount > 0)
+            {
+                transactionHistoryOnDate += $"There are a total of {transactionCount} transactions:\n";
+                foreach (CustomersBalance transaction in transactions)
+                    transactionHistoryOnDate += GetBalanceTransactions(transaction);
             }
-            else
-                transactionHistoryOnDate = "Starting date cannot be a future date!";
 
             return transactionHistoryOnDate;
         }
