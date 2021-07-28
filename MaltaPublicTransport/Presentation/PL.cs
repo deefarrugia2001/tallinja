@@ -151,11 +151,11 @@ namespace Presentation
 
             try
             {
-                IO.Print("Day: ");
+                IO.Print("Day: ", false);
                 day = Convert.ToInt32(Console.ReadLine());
-                IO.Print("Month: ");
+                IO.Print("Month: ", false);
                 month = Convert.ToInt32(Console.ReadLine());
-                IO.Print("Year: ");
+                IO.Print("Year: ", false);
                 year = Convert.ToInt32(Console.ReadLine());
 
                 string transactionOnDay = businessLayer.GetBalanceTransactionsOnDate(customerNumber, day, month, year);
@@ -163,7 +163,7 @@ namespace Presentation
             }
             catch(FormatException)
             {
-                IO.Print(IO.Type.ERROR, "");
+                IO.Print(IO.Type.ERROR, "Textual input is not allowed!");
             }
         }
 
