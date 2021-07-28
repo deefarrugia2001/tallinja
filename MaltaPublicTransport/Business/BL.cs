@@ -2,10 +2,10 @@
 
 using Data;
 using Domain;
-using WebScraping;
-using System;
 using OpenQA.Selenium;
+using System;
 using System.Collections.Generic;
+using WebScraping;
 
 namespace Business
 {
