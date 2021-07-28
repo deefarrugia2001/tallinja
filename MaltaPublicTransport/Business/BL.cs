@@ -6,7 +6,6 @@ using WebScraping;
 using System;
 using OpenQA.Selenium;
 using System.Collections.Generic;
-using System.Globalization;
 
 namespace Business
 {

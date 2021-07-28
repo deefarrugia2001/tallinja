@@ -167,7 +167,10 @@ namespace Presentation
                 year = Convert.ToInt32(Console.ReadLine());
 
                 if(businessLayer.CheckIfFutureDate(day, month, year))
+                {
                     IO.Print(IO.Type.ERROR, "Date cannot be in the future!");
+                    ViewChecksOnParticularDay();
+                }
                 else
                 {
                     int transactionCount = businessLayer.GetTransactionCountOnDate(customerNumber, day, month, year);
