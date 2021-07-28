@@ -63,6 +63,13 @@ namespace Business
             return transactionHistory;
         }
 
+        public string GetCommuterInformation(int customerNumber) 
+        {
+            Customer customer = dataLayer.FetchCustomerByCN(customerNumber);
+            string commuterInformation = $"Customer number: {customer.customer_number}\nDate joined: {customer.date}";
+            return commuterInformation;
+        }
+
         public int GetAdmissionsOnDate(int day, int month, int year)
         {
             DateTime admissionDate = new DateTime(year, month, day);

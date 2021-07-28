@@ -24,6 +24,14 @@ namespace Data
             return customersOnDate;
         }
 
+        public List<Customer> GetBalanceTransactionsOnDate(int customerID, DateTime checkDate, DateTime postCheckDate)
+        {
+            List<Customer> customersOnDate = new List<Customer>(from customer in mptDB.Customers
+                                                                where customer.customer_id == customerID && customer.date >= checkDate && customer.date < postCheckDate
+                                                                select customer);
+            return customersOnDate;
+        }
+
         public void CommitToCustomer(Command command, int customerNumber) 
         {
             //Depending on the enum passed as an argument, either deletion or insertion happens.

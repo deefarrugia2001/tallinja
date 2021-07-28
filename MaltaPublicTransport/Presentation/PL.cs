@@ -89,16 +89,20 @@ namespace Presentation
 
         private static void ViewAccountInformation()
         {
-            throw new NotImplementedException();
+            Console.Clear();
+            string commuterInformation = businessLayer.GetCommuterInformation(customerNumber);
+            IO.Print(commuterInformation);
+            PromptForKeyPress();
         }
 
         static void ViewAllChecks()
         {
+            Console.Clear();
             string balanceHistory = businessLayer.GetBalanceTransactions(customerNumber);
             if (balanceHistory != string.Empty)
                 IO.Print(balanceHistory);
             else 
-                IO.Print(IO.Type.ERROR, "\nSorry, no transactions were found!");
+                IO.Print(IO.Type.ERROR, "Sorry, no transactions were found!");
             PromptForKeyPress();
         }
 
@@ -148,6 +152,8 @@ namespace Presentation
 
         static void CheckBalance()
         {
+            Console.Clear();
+
             decimal balance = businessLayer.FetchBalance(customerNumber);
             IO.Print(IO.Type.SUCCESS, $"Dear commuter, you have EUR {balance} left.");
             businessLayer.AddBalance(customerNumber, balance);
