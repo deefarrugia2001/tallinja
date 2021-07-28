@@ -100,17 +100,14 @@ namespace Business
         {
             string transactionHistoryOnDate = string.Empty;
             DateTime checkDate = new DateTime(year, month, day);
+            DateTime dayPostCheckBalance = checkDate.AddDays(1);
 
-            DateTime dayPostCheckBalance = new DateTime(year, month, day);
             List<CustomersBalance> transactions = dataLayer.GetBalanceTransactionsOnDate(customerNumber, checkDate, dayPostCheckBalance);
             int transactionCount = transactions.Count;
 
-            if (transactionCount > 0)
-            {
-                transactionHistoryOnDate += $"There are a total of {transactionCount} transactions:\n";
-                foreach (CustomersBalance transaction in transactions)
-                    transactionHistoryOnDate += GetBalanceTransactions(transaction);
-            }
+            transactionHistoryOnDate += $"There are a total of {transactionCount} transactions:\n";
+            foreach (CustomersBalance transaction in transactions)
+                transactionHistoryOnDate += $"{transaction.balance}\t{transaction.date}\n";
 
             return transactionHistoryOnDate;
         }

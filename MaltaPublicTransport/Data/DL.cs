@@ -28,8 +28,8 @@ namespace Data
         {
             int customerID = FetchCustomerID(customerNumber);
             List<CustomersBalance> customersOnDate = new List<CustomersBalance>(from transaction in mptDB.CustomersBalances
-                                                                where transaction.customer_id == customerID && transaction.date >= checkDate && transaction.date < postCheckDate
-                                                                select transaction);
+                                                                                where transaction.customer_id == customerID && transaction.date >= checkDate &&         transaction.date < postCheckDate
+                                                                                select transaction);
             return customersOnDate;
         }
 
