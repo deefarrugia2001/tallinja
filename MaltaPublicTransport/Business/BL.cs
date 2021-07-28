@@ -74,14 +74,23 @@ namespace Business
 
         public string GetCommuterInformation(int customerNumber) 
         {
+            string commuterInformation = string.Empty;
+
             Customer customer = dataLayer.FetchCustomerByCN(customerNumber);
             int allTransactionCount = GetAllTransactionsCount(customerNumber);
 
-            CustomersBalance lastTransaction = dataLayer.GetLastTransaction(customerNumber);
-            DateTime dateLastChecked = lastTransaction.date;
-            decimal balance = lastTransaction.balance;
+            commuterInformation += $"Customer number: {customer.customer_number}\nDate joined: {customer.date}\n";
 
-            string commuterInformation = $"Customer number: {customer.customer_number}\nDate joined: {customer.date}\nTotal balance checks: {allTransactionCount}\nBalance: {balance} as of {dateLastChecked}\n";
+            if (allTransactionCount > 0)
+            {
+                CustomersBalance lastTransaction = dataLayer.GetLastTransaction(customerNumber);
+                DateTime dateLastChecked = lastTransaction.date;
+                decimal balance = lastTransaction.balance;
+                commuterInformation += $"\nTotal balance checks: {allTransactionCount}\nBalance: {balance} as of {dateLastChecked}\n";
+            }
+            else
+                commuterInformation += $"You have no transactions yet!\n";
+
             return commuterInformation;
         }
 
