@@ -38,10 +38,10 @@ namespace Business
             return balance;
         }
 
-        public bool CheckCommuterExistence(int customerNumber)
+        public bool CheckCommuterAnomaly(int customerNumber)
         {
             StartWebScraping(customerNumber);
-            return !chrome.CheckElementExistence(By.Id("ctl00_ctl00_ParentPageContent_PageContent_ContentControl_ctl00_divError"));
+            return chrome.CheckElementVisibility(By.Id("ctl00_ctl00_ParentPageContent_PageContent_ContentControl_ctl00_divError"));
         }
 
         public void AddBalance(int customerNumber, decimal balance) 

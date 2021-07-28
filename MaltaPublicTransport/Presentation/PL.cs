@@ -245,23 +245,29 @@ namespace Presentation
 
             if (isInputFormatCorrect)
             {
-                bool registeredWithTallinja = businessLayer.CheckCommuterExistence(customerNumber);
-
-                if (registeredWithTallinja)
-                {
-                    if (businessLayer.VerifyCNUniqueness(customerNumber))
-                    {
-                        bool isInsertionSuccessful = businessLayer.AddCustomer(customerNumber);
-                        if (isInsertionSuccessful)
-                            IO.Print(IO.Type.SUCCESS, "Commuter has been added successfully!");
-                        else
-                            IO.Print(IO.Type.ERROR, "Unable to add commuter!");
-                    }
-                    else
-                        IO.Print(IO.Type.ERROR, "Customer number is not unique.");
-                }
+                bool notRegisteredWithTallinja = businessLayer.CheckCommuterAnomaly(customerNumber);
+                if (notRegisteredWithTallinja)
+                    Console.WriteLine("Does not exist.");
                 else
-                    IO.Print(IO.Type.ERROR, "This tallinja card was not found. Please ensure that the tallinja card customer number you entered is correct.");
+                    Console.WriteLine("Does exist.");
+
+                Console.ReadLine();
+
+                //if (!registeredWithTallinja)
+                //{
+                //    if (businessLayer.VerifyCNUniqueness(customerNumber))
+                //    {
+                //        bool isInsertionSuccessful = businessLayer.AddCustomer(customerNumber);
+                //        if (isInsertionSuccessful)
+                //            IO.Print(IO.Type.SUCCESS, "Commuter has been added successfully!");
+                //        else
+                //            IO.Print(IO.Type.ERROR, "Unable to add commuter!");
+                //    }
+                //    else
+                //        IO.Print(IO.Type.ERROR, "Customer number is not unique.");
+                //}
+                //else
+                //    IO.Print(IO.Type.ERROR, "This tallinja card was not found. Please ensure that the tallinja card customer number you entered is correct.");
             }
             else
                 Warn("Input not in correct format, please try again!");

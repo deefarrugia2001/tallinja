@@ -25,6 +25,12 @@ namespace WebScraping
             driver.Navigate().GoToUrl(url);
         }
 
+        public bool CheckElementVisibility(By target)
+        {
+            IWebElement element = driver.FindElement(target);
+            return element.Displayed;
+        }
+
         public bool CheckElementExistence(By target)
         {
             try
