@@ -69,7 +69,7 @@ namespace Business
             int allTransactionCount = GetAllTransactionsCount(customerNumber);
             DateTime dateLastChecked = dataLayer.GetLastTransaction(customerNumber).date;
 
-            string commuterInformation = $"Customer number: {customer.customer_number}\nDate joined: {customer.date}\nTotal balance checks: {allTransactionCount}\nDate last checked: {dateLastChecked}";
+            string commuterInformation = $"Customer number: {customer.customer_number}\nDate joined: {customer.date}\nTotal balance checks: {allTransactionCount}\nDate last checked: {dateLastChecked}\n";
             return commuterInformation;
         }
 
