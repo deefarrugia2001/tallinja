@@ -147,7 +147,14 @@ namespace Presentation
 
         static void ViewChecksOnParticularDay()
         {
-            throw new NotImplementedException();
+            int day, month, year;
+
+            IO.Print("Day: ");
+            day = Convert.ToInt32(Console.ReadLine());
+            IO.Print("Month: ");
+            day = Convert.ToInt32(Console.ReadLine());
+            IO.Print("Year: ");
+            day = Convert.ToInt32(Console.ReadLine());
         }
 
         static void CheckBalance()
