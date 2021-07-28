@@ -73,15 +73,23 @@ namespace Presentation
                     ViewAllChecks();
                     break;
                 case 4:
-                    Deactivate();
+                    ViewAccountInformation();
                     break;
                 case 5:
+                    Deactivate();
+                    break;
+                case 6:
                     Logout();
                     break;
                 default:
                     Warn("You have not selected an option within the specified range.");
                     break;
             }
+        }
+
+        private static void ViewAccountInformation()
+        {
+            throw new NotImplementedException();
         }
 
         static void ViewAllChecks()
