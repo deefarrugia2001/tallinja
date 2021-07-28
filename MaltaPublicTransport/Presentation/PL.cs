@@ -147,6 +147,8 @@ namespace Presentation
 
         static void ViewChecksOnParticularDay()
         {
+            Console.Clear();
+
             int day, month, year;
 
             try
@@ -178,6 +180,7 @@ namespace Presentation
             catch(FormatException)
             {
                 IO.Print(IO.Type.ERROR, "Textual input is not allowed!");
+                ViewChecksOnParticularDay();
             }
         }
 
