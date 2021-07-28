@@ -89,7 +89,7 @@ namespace Presentation
             string balanceHistory = businessLayer.GetBalanceTransactions(customerNumber);
             if (balanceHistory != string.Empty)
                 IO.Print(balanceHistory);
-            else
+            else 
                 IO.Print(IO.Type.ERROR, "\nSorry, no transactions were found!");
             PromptForKeyPress();
         }
