@@ -14,10 +14,8 @@ namespace Business
         static Chrome chrome = null;
         static DL dataLayer = new DL();
 
-        public decimal FetchBalance(int customerNumber)
+        private static void StartWebScraping(int customerNumber)
         {
-            decimal balance = 0.0m;
-
             chrome = new Chrome();
             chrome.Navigate("https://www.publictransport.com.mt/en/check-card-balance");
 
@@ -26,6 +24,12 @@ namespace Business
 
             IWebElement checkBtn = chrome.FindElement(Element.ID, "ctl00_ctl00_ParentPageContent_PageContent_ContentControl_ctl00_btnCheckBalance");
             checkBtn.Submit();
+        }
+
+        public decimal FetchBalance(int customerNumber)
+        {
+            decimal balance = 0.0m;
+            StartWebScraping(customerNumber);
 
             string balanceEuros = chrome.FindElement(Element.ID, "ctl00_ctl00_ParentPageContent_PageContent_ContentControl_ctl00_lblCardBalance2").Text;
             string balanceCents = chrome.FindElement(Element.ID, "ctl00_ctl00_ParentPageContent_PageContent_ContentControl_ctl00_lblBalanceCents").Text;
@@ -33,6 +37,12 @@ namespace Business
             balance = Convert.ToDecimal($"{balanceEuros}{balanceCents}");
 
             return balance;
+        }
+
+        public bool CheckCommuterExistence(int customerNumber)
+        {
+            StartWebScraping(customerNumber);
+            return chrome.CheckElementExistence(By.Id("ctl00_ctl00_ParentPageContent_PageContent_ContentControl_ctl00_divError"));
         }
 
         public void AddBalance(int customerNumber, decimal balance) 
