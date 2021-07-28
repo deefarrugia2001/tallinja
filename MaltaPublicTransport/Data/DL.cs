@@ -24,11 +24,12 @@ namespace Data
             return customersOnDate;
         }
 
-        public List<Customer> GetBalanceTransactionsOnDate(int customerID, DateTime checkDate, DateTime postCheckDate)
+        public List<CustomersBalance> GetBalanceTransactionsOnDate(int customerNumber, DateTime checkDate, DateTime postCheckDate)
         {
-            List<Customer> customersOnDate = new List<Customer>(from customer in mptDB.Customers
-                                                                where customer.customer_id == customerID && customer.date >= checkDate && customer.date < postCheckDate
-                                                                select customer);
+            int customerID = FetchCustomerID(customerNumber);
+            List<CustomersBalance> customersOnDate = new List<CustomersBalance>(from transaction in mptDB.CustomersBalances
+                                                                where transaction.customer_id == customerID && transaction.date >= checkDate && transaction.date < postCheckDate
+                                                                select transaction);
             return customersOnDate;
         }
 
