@@ -61,16 +61,19 @@ namespace Business
 
         private string GetBalanceTransactions(CustomersBalance transaction)
         {
-            return $"{transaction.balance.ToString("C", new CultureInfo("mt-MT"))}\t{transaction.date}\n";
+            return $"{transaction.balance}\t{transaction.date}\n";
         }
 
         public string GetCommuterInformation(int customerNumber) 
         {
             Customer customer = dataLayer.FetchCustomerByCN(customerNumber);
             int allTransactionCount = GetAllTransactionsCount(customerNumber);
-            DateTime dateLastChecked = dataLayer.GetLastTransaction(customerNumber).date;
 
-            string commuterInformation = $"Customer number: {customer.customer_number}\nDate joined: {customer.date}\nTotal balance checks: {allTransactionCount}\nDate last checked: {dateLastChecked}\n";
+            CustomersBalance lastTransaction = dataLayer.GetLastTransaction(customerNumber);
+            DateTime dateLastChecked = lastTransaction.date;
+            decimal balance = lastTransaction.balance;
+
+            string commuterInformation = $"Customer number: {customer.customer_number}\nDate joined: {customer.date}\nTotal balance checks: {allTransactionCount}\nBalance: {balance} as of {dateLastChecked}\n";
             return commuterInformation;
         }
 
@@ -98,8 +101,15 @@ namespace Business
 
         public bool CheckIfFutureDate(int day, int month, int year) 
         {
-            DateTime checkDate = new DateTime(year, month, day);
-            return checkDate > DateTime.Today;
+            try
+            {
+                DateTime checkDate = new DateTime(year, month, day);
+                return checkDate > DateTime.Today;
+            }
+            catch(ArgumentException) 
+            {
+                return true;
+            }
         }
 
         public string GetBalanceTransactionsOnDate(int customerNumber, int day, int month, int year) 
