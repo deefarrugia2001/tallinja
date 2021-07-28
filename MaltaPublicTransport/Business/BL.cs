@@ -82,6 +82,11 @@ namespace Business
             return admissionsCount;
         }
 
+        public int GetAllTransactionsCount(int customerNumber)
+        {
+            return dataLayer.GetBalanceTransactions(customerNumber).Count;
+        }
+
         public int GetTransactionCountOnDate(int customerNumber, int day, int month, int year)
         {
             DateTime checkDate = new DateTime(year, month, day);
