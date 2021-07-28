@@ -6,6 +6,7 @@ using WebScraping;
 using System;
 using OpenQA.Selenium;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace Business
 {
@@ -60,7 +61,7 @@ namespace Business
 
         private string GetBalanceTransactions(CustomersBalance transaction)
         {
-            return $"{transaction.balance}\t{transaction.date}\n";
+            return $"{transaction.balance.ToString("C", new CultureInfo("mt-MT"))}\t{transaction.date}\n";
         }
 
         public string GetCommuterInformation(int customerNumber) 
