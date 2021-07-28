@@ -131,15 +131,15 @@ namespace Presentation
 
                     if (isDeletionSuccessful)
                     {
-                        IO.Print(IO.Type.SUCCESS, "Commuter has been deactivated successfully!");
+                        IO.Print(IO.Type.SUCCESS, "\nCommuter has been deactivated successfully!");
                         isCommuterLoggedIn = false;
                     }
                     else
-                        IO.Print(IO.Type.ERROR, "Unable to deactivate commuter!");
+                        IO.Print(IO.Type.ERROR, "\nUnable to deactivate commuter!");
                 }
                 else if (deactivateChoice.ToUpper() == "N" || deactivateChoice.ToLower() == "n")
                 {
-                    IO.Print("Returning to Commuter's menu...");
+                    IO.Print("\nReturning to Commuter's menu...");
                     PromptForKeyPress();
                 }
                 else
@@ -173,15 +173,15 @@ namespace Presentation
                 }
                 else
                 {
-                    int transactionCount = businessLayer.GetTransactionCountOnDate(customerNumber, day, month, year);
-                    if (transactionCount > 0)
+                    string transactionOnDay = businessLayer.GetBalanceTransactionsOnDate(customerNumber, day, month, year);
+
+                    if (transactionOnDay != string.Empty)
                     {
-                        string transactionOnDay = businessLayer.GetBalanceTransactionsOnDate(customerNumber, day, month, year);
                         IO.Print(transactionOnDay);
                         PromptForKeyPress();
                     }
                     else
-                        IO.Print(IO.Type.ERROR, "Sorry, no transactions found!");
+                        IO.Print(IO.Type.ERROR, "Sorry, no transactions were found!");
                 }
             }
             catch(FormatException)
