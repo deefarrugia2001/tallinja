@@ -245,16 +245,23 @@ namespace Presentation
 
             if (isInputFormatCorrect)
             {
-                if (businessLayer.VerifyCNUniqueness(customerNumber))
+                bool registeredWithTallinja = businessLayer.CheckCommuterExistence(customerNumber);
+
+                if (registeredWithTallinja)
                 {
-                    bool isInsertionSuccessful = businessLayer.AddCustomer(customerNumber);
-                    if (isInsertionSuccessful)
-                        IO.Print(IO.Type.SUCCESS, "Commuter has been added successfully!");
+                    if (businessLayer.VerifyCNUniqueness(customerNumber))
+                    {
+                        bool isInsertionSuccessful = businessLayer.AddCustomer(customerNumber);
+                        if (isInsertionSuccessful)
+                            IO.Print(IO.Type.SUCCESS, "Commuter has been added successfully!");
+                        else
+                            IO.Print(IO.Type.ERROR, "Unable to add commuter!");
+                    }
                     else
-                        IO.Print(IO.Type.ERROR, "Unable to add commuter!");
+                        IO.Print(IO.Type.ERROR, "Customer number is not unique.");
                 }
                 else
-                    IO.Print(IO.Type.ERROR, "Customer number is not unique.");
+                    IO.Print(IO.Type.ERROR, "This tallinja card was not found. Please ensure that the tallinja card customer number you entered is correct.");
             }
             else
                 Warn("Input not in correct format, please try again!");
