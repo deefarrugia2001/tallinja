@@ -152,9 +152,12 @@ namespace Presentation
             IO.Print("Day: ");
             day = Convert.ToInt32(Console.ReadLine());
             IO.Print("Month: ");
-            day = Convert.ToInt32(Console.ReadLine());
+            month = Convert.ToInt32(Console.ReadLine());
             IO.Print("Year: ");
-            day = Convert.ToInt32(Console.ReadLine());
+            year = Convert.ToInt32(Console.ReadLine());
+
+            string transactionOnDay = businessLayer.GetBalanceTransactionsOnDate(customerNumber, day, month, year);
+            IO.Print(transactionOnDay);
         }
 
         static void CheckBalance()
