@@ -56,11 +56,16 @@ namespace Business
 
                 foreach (CustomersBalance transaction in transactions)
                 {
-                    transactionHistory += $"{transaction.balance}\t{transaction.date}\n";
+                    transactionHistory += GetBalanceTransactions(transaction);
                 }
             }
 
             return transactionHistory;
+        }
+
+        private string GetBalanceTransactions(CustomersBalance transaction)
+        {
+            return $"{transaction.balance}\t{transaction.date}\n";
         }
 
         public string GetCommuterInformation(int customerNumber) 
@@ -77,6 +82,23 @@ namespace Business
             DateTime dayPostAdmission = admissionDate.AddDays(1);
             int admissionsCount = dataLayer.GetAdmissionsOnDate(admissionDate, dayPostAdmission).Count;
             return admissionsCount;
+        }
+
+        public string GetBalanceTransactionsOnDate(int customerNumber, int day, int month, int year) 
+        {
+            string transactionHistoryOnDate = string.Empty;
+
+            DateTime checkDate = new DateTime(year, month, day);
+            DateTime dayPostCheckBalance = new DateTime(year, month, day);
+
+            List<CustomersBalance> transactions = dataLayer.GetBalanceTransactionsOnDate(customerNumber, checkDate, dayPostCheckBalance);
+            int transactionCount = transactions.Count;
+
+            transactionHistoryOnDate += $"There are a total of {transactionCount} transactions:\n";
+            foreach (CustomersBalance transaction in transactions)
+                transactionHistoryOnDate += GetBalanceTransactions(transaction);
+
+            return transactionHistoryOnDate;
         }
 
         public string FetchCustomerStatement(int customerNumber) 
