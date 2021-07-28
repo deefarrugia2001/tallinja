@@ -248,6 +248,8 @@ namespace Presentation
                 bool notRegisteredWithTallinja = businessLayer.CheckCommuterAnomaly(customerNumber);
 
                 if (notRegisteredWithTallinja)
+                    IO.Print(IO.Type.ERROR, "This tallinja card was not found. Please ensure that the tallinja card customer number you entered is correct.");
+                else
                 {
                     if (businessLayer.VerifyCNUniqueness(customerNumber))
                     {
@@ -260,8 +262,6 @@ namespace Presentation
                     else
                         IO.Print(IO.Type.ERROR, "Customer number is not unique.");
                 }
-                else
-                    IO.Print(IO.Type.ERROR, "This tallinja card was not found. Please ensure that the tallinja card customer number you entered is correct.");
             }
             else
                 Warn("Input not in correct format, please try again!");
