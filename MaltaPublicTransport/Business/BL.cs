@@ -105,9 +105,9 @@ namespace Business
             List<CustomersBalance> transactions = dataLayer.GetBalanceTransactionsOnDate(customerNumber, checkDate, dayPostCheckBalance);
             int transactionCount = transactions.Count;
 
-            transactionHistoryOnDate += $"There are a total of {transactionCount} transactions:\n";
+            transactionHistoryOnDate += $"There are a total of {transactionCount} transactions:\n\nBalance\tDate checked\n =======\t ===================\n";
             foreach (CustomersBalance transaction in transactions)
-                transactionHistoryOnDate += $"{transaction.balance}\t{transaction.date}\n";
+                transactionHistoryOnDate += GetBalanceTransactions(transaction);
 
             return transactionHistoryOnDate;
         }
