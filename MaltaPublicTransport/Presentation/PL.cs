@@ -98,11 +98,17 @@ namespace Presentation
         static void ViewAllChecks()
         {
             Console.Clear();
-            string balanceHistory = businessLayer.GetBalanceTransactions(customerNumber);
-            if (balanceHistory != string.Empty)
+
+            int transactionOnDateCount = businessLayer.GetAllTransactionsCount(customerNumber);
+
+            if (transactionOnDateCount > 0)
+            {
+                string balanceHistory = businessLayer.GetBalanceTransactions(customerNumber);
                 IO.Print(balanceHistory);
+            }
             else 
                 IO.Print(IO.Type.ERROR, "Sorry, no transactions were found!");
+
             PromptForKeyPress();
         }
 
